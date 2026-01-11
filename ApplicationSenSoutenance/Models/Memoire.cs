@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApplicationSenSoutenance.Models
 {
@@ -15,19 +11,33 @@ namespace ApplicationSenSoutenance.Models
 
         [MaxLength(500), Required]
         public string SujetMemoire { get; set; }
-        public int? IdAnneeAcademique { get; set; }
-
-        [ForeignKey("IdAnneeAcademique")]
-
-        public virtual AnneeAcademique AnneeAcademique { get; set; }
 
         public byte[] DocumentMemoire { get; set; }
 
-        public int IdSession {  get; set; }
+        [Required]
+        public int IdSession { get; set; }
 
         [ForeignKey("IdSession")]
-
         public virtual Session Session { get; set; }
 
+        [Required]
+        public int IdCandidat { get; set; }
+
+        [ForeignKey("IdCandidat")]
+        public virtual Candidat Candidat { get; set; }
+
+        [Required]
+        public int IdDirecteurMemoire { get; set; }
+
+        [ForeignKey("IdDirecteurMemoire")]
+        public virtual Professeur DirecteurMemoire { get; set; }
+
+        public int? IdCoDirecteurMemoire { get; set; }
+
+        [ForeignKey("IdCoDirecteurMemoire")]
+        public virtual Professeur CoDirecteurMemoire { get; set; }
+
+        public DateTime DateDepot { get; set; } = DateTime.Now;
+        public DateTime? DateModification { get; set; }
     }
 }

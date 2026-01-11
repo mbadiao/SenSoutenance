@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApplicationSenSoutenance.Models
 {
@@ -17,5 +13,7 @@ namespace ApplicationSenSoutenance.Models
 
         [Required]
         public int AnneeAcademiqueVal { get; set; }
+
+        public virtual ICollection<Session> Sessions { get; set; }
     }
 }

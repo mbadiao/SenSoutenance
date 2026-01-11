@@ -1,15 +1,7 @@
-﻿using ApplicationSenSoutenance.Views;
-using ApplicationSenSoutenance.Views.Parametre;
+﻿using ApplicationSenSoutenance.Views.Parametre;
 using Microsoft.VisualBasic.Devices;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance
@@ -21,26 +13,23 @@ namespace ApplicationSenSoutenance
             InitializeComponent();
         }
 
-        /// <summary>
-        /// methode permettant de fermer tout les forms dans le ParentMDI
-        /// </summary>
-
-        private void fermer()
+        private void FermerFormulairesEnfants()
         {
-            Form[] charr = this.MdiChildren;
+            foreach (Form form in this.MdiChildren)
+                form.Close();
+        }
 
-            // Pour chaque formulaire enfant, on le ferme
-            foreach (Form chform in charr)
-            {
-                // chform.WindowState = FormWindowState.Maximized; (optionnel)
-                chform.Close();
-            }
+        private void OuvrirFormulaire(Form formulaire)
+        {
+            FermerFormulairesEnfants();
+            formulaire.MdiParent = this;
+            formulaire.Show();
+            formulaire.WindowState = FormWindowState.Maximized;
         }
 
         private void seDeconnecterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConnexion f = new frmConnexion();
-            f.Show();
+            new frmConnexion().Show();
             this.Close();
         }
 
@@ -51,38 +40,24 @@ namespace ApplicationSenSoutenance
 
         private void anneeAcademiqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmAnneeAcademique f = new frmAnneeAcademique();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized; // ✅ Maximisé au lieu de Minimized
+            OuvrirFormulaire(new frmAnneeAcademique());
         }
+
         private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmSession f = new frmSession();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            OuvrirFormulaire(new frmSession());
         }
 
         private void professeurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmProfesseur f = new frmProfesseur();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            OuvrirFormulaire(new frmProfesseur());
         }
 
         private void frmMDI_Load(object sender, EventArgs e)
         {
-            Computer myComputer = new Computer();
-            this.Width = myComputer.Screen.Bounds.Width;
-            this.Height = myComputer.Screen.Bounds.Height;
+            var screen = new Computer().Screen.Bounds;
+            this.Width = screen.Width;
+            this.Height = screen.Height;
             this.Location = new Point(0, 0);
         }
     }
