@@ -5,15 +5,15 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationSenSoutenance.Models.BdSenSoutenanceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationSenSoutenance.Models.dbsensoutenanceContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(ApplicationSenSoutenance.Models.BdSenSoutenanceContext context)
+        protected override void Seed(ApplicationSenSoutenance.Models.dbsensoutenanceContext context)
         {
             //  This method will be called after migrating to the latest version.
 
