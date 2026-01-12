@@ -75,5 +75,15 @@ namespace ApplicationSenSoutenance.Views.Parametre
             txtLibelleAnneeAcademique.Text = dgAnneeAcademique.CurrentRow.Cells[1].Value.ToString();
             txtAnneeAcademiqueVal.Text = dgAnneeAcademique.CurrentRow.Cells[2].Value.ToString();
         }
+
+        private void txtLibelleAnneeAcademique_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgAnneeAcademique_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

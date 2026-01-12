@@ -43,16 +43,20 @@
             // dgAnneeAcademique
             // 
             this.dgAnneeAcademique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAnneeAcademique.Location = new System.Drawing.Point(229, 80);
+            this.dgAnneeAcademique.Location = new System.Drawing.Point(344, 123);
+            this.dgAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgAnneeAcademique.Name = "dgAnneeAcademique";
-            this.dgAnneeAcademique.Size = new System.Drawing.Size(421, 345);
+            this.dgAnneeAcademique.RowHeadersWidth = 62;
+            this.dgAnneeAcademique.Size = new System.Drawing.Size(632, 531);
             this.dgAnneeAcademique.TabIndex = 0;
+            this.dgAnneeAcademique.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAnneeAcademique_CellContentClick);
             // 
             // BtnSelect
             // 
-            this.BtnSelect.Location = new System.Drawing.Point(173, 13);
+            this.BtnSelect.Location = new System.Drawing.Point(260, 20);
+            this.BtnSelect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(96, 23);
+            this.BtnSelect.Size = new System.Drawing.Size(144, 35);
             this.BtnSelect.TabIndex = 3;
             this.BtnSelect.Text = "&Selectionner";
             this.BtnSelect.UseVisualStyleBackColor = true;
@@ -61,40 +65,46 @@
             // txtTexte
             // 
             this.txtTexte.AutoSize = true;
-            this.txtTexte.Location = new System.Drawing.Point(21, 50);
+            this.txtTexte.Location = new System.Drawing.Point(32, 77);
+            this.txtTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtTexte.Name = "txtTexte";
-            this.txtTexte.Size = new System.Drawing.Size(34, 13);
+            this.txtTexte.Size = new System.Drawing.Size(48, 20);
             this.txtTexte.TabIndex = 2;
             this.txtTexte.Text = "Texte";
             // 
             // txtLibelleAnneeAcademique
             // 
-            this.txtLibelleAnneeAcademique.Location = new System.Drawing.Point(21, 80);
+            this.txtLibelleAnneeAcademique.Location = new System.Drawing.Point(32, 123);
+            this.txtLibelleAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLibelleAnneeAcademique.Name = "txtLibelleAnneeAcademique";
-            this.txtLibelleAnneeAcademique.Size = new System.Drawing.Size(164, 20);
+            this.txtLibelleAnneeAcademique.Size = new System.Drawing.Size(244, 26);
             this.txtLibelleAnneeAcademique.TabIndex = 1;
+            this.txtLibelleAnneeAcademique.TextChanged += new System.EventHandler(this.txtLibelleAnneeAcademique_TextChanged);
             // 
             // txtAnneeAcademiqueVal
             // 
-            this.txtAnneeAcademiqueVal.Location = new System.Drawing.Point(21, 165);
+            this.txtAnneeAcademiqueVal.Location = new System.Drawing.Point(32, 254);
+            this.txtAnneeAcademiqueVal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAnneeAcademiqueVal.Name = "txtAnneeAcademiqueVal";
-            this.txtAnneeAcademiqueVal.Size = new System.Drawing.Size(164, 20);
+            this.txtAnneeAcademiqueVal.Size = new System.Drawing.Size(244, 26);
             this.txtAnneeAcademiqueVal.TabIndex = 2;
             // 
             // txtValeur
             // 
             this.txtValeur.AutoSize = true;
-            this.txtValeur.Location = new System.Drawing.Point(21, 135);
+            this.txtValeur.Location = new System.Drawing.Point(32, 208);
+            this.txtValeur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtValeur.Name = "txtValeur";
-            this.txtValeur.Size = new System.Drawing.Size(37, 13);
+            this.txtValeur.Size = new System.Drawing.Size(55, 20);
             this.txtValeur.TabIndex = 4;
             this.txtValeur.Text = "Valeur";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(94, 300);
+            this.btnAdd.Location = new System.Drawing.Point(141, 462);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(108, 23);
+            this.btnAdd.Size = new System.Drawing.Size(162, 35);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "&Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -102,9 +112,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(94, 351);
+            this.btnEdit.Location = new System.Drawing.Point(141, 540);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(108, 23);
+            this.btnEdit.Size = new System.Drawing.Size(162, 35);
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "&Modifier";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -112,9 +123,10 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(94, 402);
+            this.btnRemove.Location = new System.Drawing.Point(141, 618);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(108, 23);
+            this.btnRemove.Size = new System.Drawing.Size(162, 35);
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "&Supprimer";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -122,9 +134,9 @@
             // 
             // frmAnneeAcademique
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 450);
+            this.ClientSize = new System.Drawing.Size(993, 692);
             this.ControlBox = false;
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
@@ -135,6 +147,7 @@
             this.Controls.Add(this.txtTexte);
             this.Controls.Add(this.BtnSelect);
             this.Controls.Add(this.dgAnneeAcademique);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAnneeAcademique";
             this.Text = "AnneeAcademique";
             this.Load += new System.EventHandler(this.frmAnneeAcademique_Load);

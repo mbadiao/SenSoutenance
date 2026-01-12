@@ -128,6 +128,7 @@
     <Compile Include="Models\BdSenSoutenanceContext.cs" />
     <Compile Include="Models\Candidat.cs" />
     <Compile Include="Models\ChefDepartement.cs" />
+    <Compile Include="Models\dbsensoutenanceContext.cs" />
     <Compile Include="Models\Departement.cs" />
     <Compile Include="Models\ListItem.cs" />
     <Compile Include="Models\Memoire.cs" />
