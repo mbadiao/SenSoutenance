@@ -1,4 +1,6 @@
-﻿using ApplicationSenSoutenance.Views.Parametre;
+using ApplicationSenSoutenance.CustomControls;
+using ApplicationSenSoutenance.Views;
+using ApplicationSenSoutenance.Views.Parametre;
 using Microsoft.VisualBasic.Devices;
 using System;
 using System.Drawing;
@@ -8,6 +10,10 @@ namespace ApplicationSenSoutenance
 {
     public partial class frmMDI : Form
     {
+        private CustomButton activeButton = null;
+        private Color defaultButtonColor = ColorTranslator.FromHtml("#7A5CF9");
+        private Color activeButtonColor = ColorTranslator.FromHtml("#AD2EC6");
+
         public frmMDI()
         {
             InitializeComponent();
@@ -27,30 +33,17 @@ namespace ApplicationSenSoutenance
             formulaire.WindowState = FormWindowState.Maximized;
         }
 
-        private void seDeconnecterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HighlightActiveButton(CustomButton button)
         {
-            new frmConnexion().Show();
-            this.Close();
-        }
+            if (activeButton != null)
+            {
+                activeButton.ButtonColor = defaultButtonColor;
+                activeButton.BackColor = defaultButtonColor;
+            }
 
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void anneeAcademiqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OuvrirFormulaire(new frmAnneeAcademique());
-        }
-
-        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OuvrirFormulaire(new frmSession());
-        }
-
-        private void professeurToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OuvrirFormulaire(new frmProfesseur());
+            button.ButtonColor = activeButtonColor;
+            button.BackColor = activeButtonColor;
+            activeButton = button;
         }
 
         private void frmMDI_Load(object sender, EventArgs e)
@@ -59,6 +52,59 @@ namespace ApplicationSenSoutenance
             this.Width = screen.Width;
             this.Height = screen.Height;
             this.Location = new Point(0, 0);
+        }
+
+        private void btnCandidat_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnCandidat);
+            OuvrirFormulaire(new frmCandidat());
+        }
+
+        private void btnDepartement_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnDepartement);
+            OuvrirFormulaire(new frmDepartement());
+        }
+
+        private void btnMemoire_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnMemoire);
+            OuvrirFormulaire(new frmMemoire());
+        }
+
+        private void btnSoutenance_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnSoutenance);
+            OuvrirFormulaire(new frmSoutenance());
+        }
+
+        private void btnProfesseur_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnProfesseur);
+            OuvrirFormulaire(new frmProfesseur());
+        }
+
+        private void btnSession_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnSession);
+            OuvrirFormulaire(new frmSession());
+        }
+
+        private void btnAnneeAcademique_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnAnneeAcademique);
+            OuvrirFormulaire(new frmAnneeAcademique());
+        }
+
+        private void btnSeDeconnecter_Click(object sender, EventArgs e)
+        {
+            new frmConnexion().Show();
+            this.Close();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

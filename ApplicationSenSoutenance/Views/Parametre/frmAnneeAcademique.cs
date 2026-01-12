@@ -1,4 +1,5 @@
-﻿using ApplicationSenSoutenance.Models;
+using ApplicationSenSoutenance.Models;
+using ApplicationSenSoutenance.Shared;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
 
         private void frmAnneeAcademique_Load(object sender, EventArgs e)
         {
+            DataGridViewStyler.ApplyDarkTheme(dgAnneeAcademique);
             ChargerDonnees();
         }
 
@@ -24,66 +26,114 @@ namespace ApplicationSenSoutenance.Views.Parametre
             try
             {
                 dgAnneeAcademique.DataSource = bd.anneeAcademiques.ToList();
+                dgAnneeAcademique.Columns["Sessions"].Visible = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur lors du chargement : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void Effacer()
         {
-            txtLibelleAnneeAcademique.Clear();
-            txtAnneeAcademiqueVal.Clear();
+            txtLibelleAnneeAcademique.Texts = "";
+            txtAnneeAcademiqueVal.Texts = "";
             ChargerDonnees();
             txtLibelleAnneeAcademique.Focus();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSelectionner_Click(object sender, EventArgs e)
         {
-            var anneeAcademique = new AnneeAcademique
+            if (dgAnneeAcademique.CurrentRow == null) return;
+
+            txtLibelleAnneeAcademique.Texts = dgAnneeAcademique.CurrentRow.Cells["LibelleAnneeAcademique"].Value?.ToString() ?? "";
+            txtAnneeAcademiqueVal.Texts = dgAnneeAcademique.CurrentRow.Cells["AnneeAcademiqueVal"].Value?.ToString() ?? "";
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtLibelleAnneeAcademique.Texts))
             {
-                LibelleAnneeAcademique = txtLibelleAnneeAcademique.Text,
-                AnneeAcademiqueVal = int.Parse(txtAnneeAcademiqueVal.Text)
-            };
-            bd.anneeAcademiques.Add(anneeAcademique);
-            bd.SaveChanges();
-            Effacer();
+                MessageBox.Show("Veuillez saisir le libelle de l'annee academique.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtAnneeAcademiqueVal.Texts) || !int.TryParse(txtAnneeAcademiqueVal.Texts, out int anneeVal))
+            {
+                MessageBox.Show("Veuillez saisir une valeur numerique valide pour l'annee.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                var anneeAcademique = new AnneeAcademique
+                {
+                    LibelleAnneeAcademique = txtLibelleAnneeAcademique.Texts,
+                    AnneeAcademiqueVal = anneeVal
+                };
+                bd.anneeAcademiques.Add(anneeAcademique);
+                bd.SaveChanges();
+                Effacer();
+                MessageBox.Show("Annee academique ajoutee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'ajout : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells[0].Value.ToString());
-            var anneeAcademique = bd.anneeAcademiques.Find(id);
-            anneeAcademique.LibelleAnneeAcademique = txtLibelleAnneeAcademique.Text;
-            anneeAcademique.AnneeAcademiqueVal = int.Parse(txtAnneeAcademiqueVal.Text);
-            bd.SaveChanges();
-            Effacer();
+            if (dgAnneeAcademique.CurrentRow == null) return;
+
+            if (!int.TryParse(txtAnneeAcademiqueVal.Texts, out int anneeVal))
+            {
+                MessageBox.Show("Veuillez saisir une valeur numerique valide pour l'annee.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value.ToString());
+                var anneeAcademique = bd.anneeAcademiques.Find(id);
+                if (anneeAcademique != null)
+                {
+                    anneeAcademique.LibelleAnneeAcademique = txtLibelleAnneeAcademique.Texts;
+                    anneeAcademique.AnneeAcademiqueVal = anneeVal;
+                    bd.SaveChanges();
+                    Effacer();
+                    MessageBox.Show("Annee academique modifiee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la modification : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells[0].Value.ToString());
-            var anneeAcademique = bd.anneeAcademiques.Find(id);
-            bd.anneeAcademiques.Remove(anneeAcademique);
-            bd.SaveChanges();
-            Effacer();
-        }
+            if (dgAnneeAcademique.CurrentRow == null) return;
 
-        private void BtnSelect_Click(object sender, EventArgs e)
-        {
-            txtLibelleAnneeAcademique.Text = dgAnneeAcademique.CurrentRow.Cells[1].Value.ToString();
-            txtAnneeAcademiqueVal.Text = dgAnneeAcademique.CurrentRow.Cells[2].Value.ToString();
-        }
+            var result = MessageBox.Show("Voulez-vous vraiment supprimer cette annee academique ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes) return;
 
-        private void txtLibelleAnneeAcademique_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgAnneeAcademique_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            try
+            {
+                int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value.ToString());
+                var anneeAcademique = bd.anneeAcademiques.Find(id);
+                if (anneeAcademique != null)
+                {
+                    bd.anneeAcademiques.Remove(anneeAcademique);
+                    bd.SaveChanges();
+                    Effacer();
+                    MessageBox.Show("Annee academique supprimee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la suppression : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
