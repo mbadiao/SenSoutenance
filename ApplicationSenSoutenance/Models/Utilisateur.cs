@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApplicationSenSoutenance.Models
 {
@@ -12,11 +8,10 @@ namespace ApplicationSenSoutenance.Models
         [Key]
         public int IdUtilisateur { get; set; }
 
-        [Required,MaxLength(80)]
+        [Required, MaxLength(80)]
         public string NomUtilisateur { get; set; }
 
         [Required, MaxLength(80)]
-
         public string PrenomUtilisateur { get; set; }
 
         [Required, MaxLength(15)]
@@ -27,5 +22,9 @@ namespace ApplicationSenSoutenance.Models
 
         [Required, MaxLength(300)]
         public string MotDePasse { get; set; }
+
+        public DateTime DateCreation { get; set; } = DateTime.Now;
+        public DateTime? DateModification { get; set; }
+        public bool EstActif { get; set; } = true;
     }
 }

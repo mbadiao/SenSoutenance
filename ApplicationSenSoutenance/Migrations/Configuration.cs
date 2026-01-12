@@ -1,24 +1,32 @@
-﻿namespace ApplicationSenSoutenance.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using System;
+using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationSenSoutenance.Models.dbsensoutenanceContext>
+namespace ApplicationSenSoutenance.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.BdSenSoutenanceContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(ApplicationSenSoutenance.Models.dbsensoutenanceContext context)
+        protected override void Seed(Models.BdSenSoutenanceContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.admins.AddOrUpdate(
+                a => a.EmailUtilisateur,
+                new Models.Admin
+                {
+                    NomUtilisateur = "Admin",
+                    PrenomUtilisateur = "Système",
+                    EmailUtilisateur = "admin@sensoutenance.sn",
+                    TelUtilisateur = "770000000",
+                    MotDePasse = "admin123",
+                    EstActif = true,
+                    DateCreation = DateTime.Now
+                }
+            );
+            context.SaveChanges();
         }
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApplicationSenSoutenance.Models
 {
@@ -13,13 +9,15 @@ namespace ApplicationSenSoutenance.Models
         [Key]
         public int IdSession { get; set; }
 
-        [Required, MaxLength(50)]
+        [Required, MaxLength(100)]
         public string LibelleSession { get; set; }
 
-        public int? IdAnneeAcademique { get; set; }
+        [Required]
+        public int IdAnneeAcademique { get; set; }
 
         [ForeignKey("IdAnneeAcademique")]
+        public virtual AnneeAcademique AnneeAcademique { get; set; }
 
-        public virtual AnneeAcademique AnneeAcademique {  get; set; }
+        public virtual ICollection<Memoire> Memoires { get; set; }
     }
 }
