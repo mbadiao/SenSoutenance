@@ -172,12 +172,6 @@
     <Compile Include="Views\Parametre\frmAnneeAcademique.Designer.cs">
       <DependentUpon>frmAnneeAcademique.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Parametre\frmCandidat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Parametre\frmCandidat.Designer.cs">
-      <DependentUpon>frmCandidat.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Parametre\frmProfesseur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,9 +201,6 @@
     </Compile>
     <EmbeddedResource Include="Views\Parametre\frmAnneeAcademique.resx">
       <DependentUpon>frmAnneeAcademique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Parametre\frmCandidat.resx">
-      <DependentUpon>frmCandidat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Parametre\frmProfesseur.resx">
       <DependentUpon>frmProfesseur.cs</DependentUpon>
