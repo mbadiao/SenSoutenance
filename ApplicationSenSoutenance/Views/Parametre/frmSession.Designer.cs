@@ -36,28 +36,26 @@
             this.txtValeur = new System.Windows.Forms.Label();
             this.txtSession = new System.Windows.Forms.TextBox();
             this.txtTexte = new System.Windows.Forms.Label();
-            this.cbbAnneeAcademique = new System.Windows.Forms.ComboBox();
-            this.txtRSession = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtRanneeAcademique = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.cbxAnneeAcademique = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgSession)).BeginInit();
             this.SuspendLayout();
             // 
             // dgSession
             // 
             this.dgSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSession.Location = new System.Drawing.Point(235, 94);
+            this.dgSession.Location = new System.Drawing.Point(352, 145);
+            this.dgSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgSession.Name = "dgSession";
-            this.dgSession.Size = new System.Drawing.Size(472, 332);
+            this.dgSession.RowHeadersWidth = 62;
+            this.dgSession.Size = new System.Drawing.Size(708, 511);
             this.dgSession.TabIndex = 0;
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(104, 396);
+            this.btnRemove.Location = new System.Drawing.Point(156, 609);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(108, 23);
+            this.btnRemove.Size = new System.Drawing.Size(162, 35);
             this.btnRemove.TabIndex = 9;
             this.btnRemove.Text = "&Supprimer";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -65,9 +63,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(104, 345);
+            this.btnEdit.Location = new System.Drawing.Point(156, 531);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(108, 23);
+            this.btnEdit.Size = new System.Drawing.Size(162, 35);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "&Modifier";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -75,9 +74,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(104, 294);
+            this.btnAdd.Location = new System.Drawing.Point(156, 452);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(108, 23);
+            this.btnAdd.Size = new System.Drawing.Size(162, 35);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -85,9 +85,10 @@
             // 
             // BtnSelect
             // 
-            this.BtnSelect.Location = new System.Drawing.Point(116, 12);
+            this.BtnSelect.Location = new System.Drawing.Point(174, 18);
+            this.BtnSelect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(96, 23);
+            this.BtnSelect.Size = new System.Drawing.Size(144, 35);
             this.BtnSelect.TabIndex = 10;
             this.BtnSelect.Text = "&Selectionner";
             this.BtnSelect.UseVisualStyleBackColor = true;
@@ -96,92 +97,48 @@
             // txtValeur
             // 
             this.txtValeur.AutoSize = true;
-            this.txtValeur.Location = new System.Drawing.Point(13, 144);
+            this.txtValeur.Location = new System.Drawing.Point(20, 222);
+            this.txtValeur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtValeur.Name = "txtValeur";
-            this.txtValeur.Size = new System.Drawing.Size(100, 13);
+            this.txtValeur.Size = new System.Drawing.Size(149, 20);
             this.txtValeur.TabIndex = 14;
             this.txtValeur.Text = "Annee Academique";
             // 
             // txtSession
             // 
-            this.txtSession.Location = new System.Drawing.Point(13, 87);
+            this.txtSession.Location = new System.Drawing.Point(24, 134);
             this.txtSession.Name = "txtSession";
-            this.txtSession.Size = new System.Drawing.Size(199, 20);
-            this.txtSession.TabIndex = 11;
+            this.txtSession.Size = new System.Drawing.Size(292, 26);
+            this.txtSession.TabIndex = 16;
             this.txtSession.TextChanged += new System.EventHandler(this.txtSession_TextChanged);
             // 
             // txtTexte
             // 
             this.txtTexte.AutoSize = true;
-            this.txtTexte.Location = new System.Drawing.Point(13, 58);
+            this.txtTexte.Location = new System.Drawing.Point(20, 89);
+            this.txtTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtTexte.Name = "txtTexte";
-            this.txtTexte.Size = new System.Drawing.Size(44, 13);
+            this.txtTexte.Size = new System.Drawing.Size(66, 20);
             this.txtTexte.TabIndex = 13;
             this.txtTexte.Text = "Session";
             // 
-            // cbbAnneeAcademique
+            // cbxAnneeAcademique
             // 
-            this.cbbAnneeAcademique.FormattingEnabled = true;
-            this.cbbAnneeAcademique.ItemHeight = 13;
-            this.cbbAnneeAcademique.Location = new System.Drawing.Point(13, 172);
-            this.cbbAnneeAcademique.Name = "cbbAnneeAcademique";
-            this.cbbAnneeAcademique.Size = new System.Drawing.Size(199, 21);
-            this.cbbAnneeAcademique.TabIndex = 15;
-            // 
-            // txtRSession
-            // 
-            this.txtRSession.Location = new System.Drawing.Point(235, 32);
-            this.txtRSession.Name = "txtRSession";
-            this.txtRSession.Size = new System.Drawing.Size(168, 20);
-            this.txtRSession.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(232, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Session";
-            // 
-            // txtRanneeAcademique
-            // 
-            this.txtRanneeAcademique.Location = new System.Drawing.Point(434, 32);
-            this.txtRanneeAcademique.Name = "txtRanneeAcademique";
-            this.txtRanneeAcademique.Size = new System.Drawing.Size(172, 20);
-            this.txtRanneeAcademique.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(431, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Annee Academique";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(629, 29);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(96, 23);
-            this.btnSearch.TabIndex = 20;
-            this.btnSearch.Text = "&Rechercher";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.cbxAnneeAcademique.FormattingEnabled = true;
+            this.cbxAnneeAcademique.ItemHeight = 20;
+            this.cbxAnneeAcademique.Location = new System.Drawing.Point(20, 265);
+            this.cbxAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbxAnneeAcademique.Name = "cbxAnneeAcademique";
+            this.cbxAnneeAcademique.Size = new System.Drawing.Size(296, 28);
+            this.cbxAnneeAcademique.TabIndex = 15;
             // 
             // frmSession
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 450);
+            this.ClientSize = new System.Drawing.Size(1106, 692);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtRanneeAcademique);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtRSession);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbbAnneeAcademique);
+            this.Controls.Add(this.cbxAnneeAcademique);
             this.Controls.Add(this.txtValeur);
             this.Controls.Add(this.txtSession);
             this.Controls.Add(this.txtTexte);
@@ -190,6 +147,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgSession);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSession";
             this.Text = "Session";
             this.Load += new System.EventHandler(this.frmSession_Load);
@@ -209,11 +167,6 @@
         private System.Windows.Forms.Label txtValeur;
         private System.Windows.Forms.TextBox txtSession;
         private System.Windows.Forms.Label txtTexte;
-        private System.Windows.Forms.ComboBox cbbAnneeAcademique;
-        private System.Windows.Forms.TextBox txtRSession;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtRanneeAcademique;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cbxAnneeAcademique;
     }
 }

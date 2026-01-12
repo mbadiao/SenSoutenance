@@ -1,85 +1,110 @@
 ﻿using ApplicationSenSoutenance.Models;
-using ApplicationSenSoutenance.Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity; // pour Include
 
 namespace ApplicationSenSoutenance.Views.Parametre
 {
     public partial class frmSession : Form
     {
+        BdSenSoutenanceContext db = new BdSenSoutenanceContext();
+
         public frmSession()
         {
             InitializeComponent();
         }
 
-        BdSenSoutenanceContext db = new BdSenSoutenanceContext();
-        FilerList filer = new FilerList();
-
         private void frmSession_Load(object sender, EventArgs e)
         {
-            dgSession.DataSource = db.sessions.ToList();
-            cbbAnneeAcademique.DataSource = filer.FillAnneeAcademique();
-            cbbAnneeAcademique.DisplayMember = "Text";
-            cbbAnneeAcademique.ValueMember = "Value";
-
+            ChargerDonnees();
         }
 
-        private void txtSession_TextChanged(object sender, EventArgs e)
+        private void ChargerDonnees()
         {
+            // Charger le DataGridView avec le Libelle de l'année mappé
+            var sessions = db.sessions
+                             .Include(s => s.AnneeAcademique)
+                             .Select(s => new
+                             {
+                                 s.IdSession,
+                                 s.LibelleSession,
+                                 Annee = s.AnneeAcademique.LibelleAnneeAcademique
+                             })
+                             .ToList();
 
+            dgSession.DataSource = sessions;
+
+            // Masquer l'ID et mettre l'ordre
+            dgSession.Columns["IdSession"].Visible = false;
+            dgSession.Columns["LibelleSession"].DisplayIndex = 0;
+            dgSession.Columns["Annee"].DisplayIndex = 1;
+
+            // Charger le ComboBox directement depuis la table
+            cbxAnneeAcademique.DataSource = db.anneeAcademiques.ToList();
+            cbxAnneeAcademique.DisplayMember = "LibelleAnnee";
+            cbxAnneeAcademique.ValueMember = "IdAnneeAcademique";
+        }
+
+        private void Effacer()
+        {
+            txtSession.Clear();
+            cbxAnneeAcademique.SelectedIndex = 0;
+            ChargerDonnees();
+            txtSession.Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Session session = new Session();
-            session.LibelleSession = txtSession.Text;
-            session.IdAnneeAcademique = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
+            if (string.IsNullOrWhiteSpace(txtSession.Text))
+            {
+                MessageBox.Show("Veuillez saisir le libellé de la session.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Session session = new Session
+            {
+                LibelleSession = txtSession.Text,
+                IdAnneeAcademique = (int)cbxAnneeAcademique.SelectedValue
+            };
 
             db.sessions.Add(session);
             db.SaveChanges();
             Effacer();
         }
 
-        private void Effacer()
-        {
-            txtSession.Clear();
-            cbbAnneeAcademique.SelectedValue = "";
-            dgSession.DataSource = db.sessions.ToList();
-            cbbAnneeAcademique.DataSource = filer.FillAnneeAcademique();
-            cbbAnneeAcademique.DisplayMember = "Text";
-            cbbAnneeAcademique.ValueMember = "Value";
-            txtSession.Focus();
-        }
-
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            int? id = int.Parse(dgSession.CurrentRow.Cells[0].Value.ToString());
+            if (dgSession.CurrentRow == null) return;
+
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
             Session session = db.sessions.Find(id);
+
             txtSession.Text = session.LibelleSession;
-            cbbAnneeAcademique.SelectedValue = session.IdAnneeAcademique;
+            cbxAnneeAcademique.SelectedValue = session.IdAnneeAcademique;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int? id = int.Parse(dgSession.CurrentRow.Cells[0].Value.ToString());
+            if (dgSession.CurrentRow == null) return;
+
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
             Session session = db.sessions.Find(id);
+
             session.LibelleSession = txtSession.Text;
-            session.IdAnneeAcademique = (int?)cbbAnneeAcademique.SelectedValue;
+            session.IdAnneeAcademique = (int)cbxAnneeAcademique.SelectedValue;
+
             db.SaveChanges();
             Effacer();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            int? id = int.Parse(dgSession.CurrentRow.Cells[0].Value.ToString());
+            if (dgSession.CurrentRow == null) return;
+
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
             Session session = db.sessions.Find(id);
+
             db.sessions.Remove(session);
             db.SaveChanges();
             Effacer();
@@ -87,25 +112,25 @@ namespace ApplicationSenSoutenance.Views.Parametre
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // Récupère toutes les sessions depuis la base de données
-            var liste = db.sessions.ToList();
+            var liste = db.sessions.Include(s => s.AnneeAcademique).ToList();
 
-            // Si le champ de recherche de session n'est pas vide
-            if (!string.IsNullOrEmpty(txtRSession.Text))
+            if (!string.IsNullOrWhiteSpace(txtSession.Text))
+                liste = liste.Where(s => s.LibelleSession.Contains(txtSession.Text)).ToList();
+
+            if (cbxAnneeAcademique.SelectedIndex > 0)
+                liste = liste.Where(s => s.AnneeAcademique.IdAnneeAcademique == (int)cbxAnneeAcademique.SelectedValue).ToList();
+
+            dgSession.DataSource = liste.Select(s => new
             {
-                // Filtre la liste pour ne garder que les sessions dont le libellé contient le texte saisi
-                liste = liste.Where(s => s.LibelleSession.Contains(txtRSession.Text)).ToList();
-            }
+                s.IdSession,
+                s.LibelleSession,
+                Annee = s.AnneeAcademique.LibelleAnneeAcademique
+            }).ToList();
+        }
 
-            // Si le champ de recherche d'année académique n'est pas vide
-            if (txtRanneeAcademique.Text != "")
-            {
-                // Filtre la liste pour ne garder que les sessions dont l'année académique contient le texte saisi
-                liste = liste.Where(s => s.AnneeAcademique.LibelleAnneeAcademique.Contains(txtRanneeAcademique.Text)).ToList();
-            }
+        private void txtSession_TextChanged(object sender, EventArgs e)
+        {
 
-            // Affiche la liste filtrée dans le DataGridView
-            dgSession.DataSource = liste;
         }
     }
 }
