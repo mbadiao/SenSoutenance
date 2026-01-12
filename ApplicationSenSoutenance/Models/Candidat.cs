@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationSenSoutenance.Models
 {
-    public class Candidat:Utilisateur
+    public class Candidat : Utilisateur
     {
-        [Required,MaxLength(20)]
-        public string MatriculeCandidat {  get; set; }
+        [Required, MaxLength(20)]
+        public string MatriculeCandidat { get; set; }
+
+        public virtual System.Collections.Generic.ICollection<Memoire> Memoires { get; set; }
     }
 }

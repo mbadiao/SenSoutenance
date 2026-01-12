@@ -1,4 +1,4 @@
-﻿namespace ApplicationSenSoutenance.Views.Parametre
+namespace ApplicationSenSoutenance.Views.Parametre
 {
     partial class frmSession
     {
@@ -39,9 +39,15 @@
             this.cbxAnneeAcademique = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgSession)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // dgSession
-            // 
+            //
+            this.dgSession.AllowUserToAddRows = false;
+            this.dgSession.AllowUserToDeleteRows = false;
+            this.dgSession.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgSession.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSession.Location = new System.Drawing.Point(352, 145);
             this.dgSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -141,15 +147,11 @@
             this.Controls.Add(this.cbxAnneeAcademique);
             this.Controls.Add(this.txtValeur);
             this.Controls.Add(this.txtSession);
-            this.Controls.Add(this.txtTexte);
-            this.Controls.Add(this.BtnSelect);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.lblSession);
             this.Controls.Add(this.dgSession);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSession";
-            this.Text = "Session";
+            this.Text = "Gestion des Sessions";
             this.Load += new System.EventHandler(this.frmSession_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgSession)).EndInit();
             this.ResumeLayout(false);

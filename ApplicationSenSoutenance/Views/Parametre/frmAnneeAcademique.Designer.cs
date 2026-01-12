@@ -1,4 +1,4 @@
-﻿namespace ApplicationSenSoutenance.Views.Parametre
+namespace ApplicationSenSoutenance.Views.Parametre
 {
     partial class frmAnneeAcademique
     {
@@ -29,127 +29,196 @@
         private void InitializeComponent()
         {
             this.dgAnneeAcademique = new System.Windows.Forms.DataGridView();
-            this.BtnSelect = new System.Windows.Forms.Button();
-            this.txtTexte = new System.Windows.Forms.Label();
-            this.txtLibelleAnneeAcademique = new System.Windows.Forms.TextBox();
-            this.txtAnneeAcademiqueVal = new System.Windows.Forms.TextBox();
-            this.txtValeur = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.lblLibelle = new System.Windows.Forms.Label();
+            this.lblValeur = new System.Windows.Forms.Label();
+            this.txtLibelleAnneeAcademique = new ApplicationSenSoutenance.CustomControls.CustomTextBox();
+            this.txtAnneeAcademiqueVal = new ApplicationSenSoutenance.CustomControls.CustomTextBox();
+            this.btnSelectionner = new ApplicationSenSoutenance.CustomControls.CustomButton();
+            this.btnAjouter = new ApplicationSenSoutenance.CustomControls.CustomButton();
+            this.btnModifier = new ApplicationSenSoutenance.CustomControls.CustomButton();
+            this.btnSupprimer = new ApplicationSenSoutenance.CustomControls.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgAnneeAcademique)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // dgAnneeAcademique
-            // 
+            //
+            this.dgAnneeAcademique.AllowUserToAddRows = false;
+            this.dgAnneeAcademique.AllowUserToDeleteRows = false;
+            this.dgAnneeAcademique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgAnneeAcademique.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgAnneeAcademique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAnneeAcademique.Location = new System.Drawing.Point(348, 65);
-            this.dgAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgAnneeAcademique.Location = new System.Drawing.Point(300, 30);
             this.dgAnneeAcademique.Name = "dgAnneeAcademique";
-            this.dgAnneeAcademique.RowHeadersWidth = 62;
-            this.dgAnneeAcademique.Size = new System.Drawing.Size(632, 531);
+            this.dgAnneeAcademique.ReadOnly = true;
+            this.dgAnneeAcademique.RowHeadersVisible = false;
+            this.dgAnneeAcademique.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAnneeAcademique.Size = new System.Drawing.Size(550, 470);
             this.dgAnneeAcademique.TabIndex = 0;
-            this.dgAnneeAcademique.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAnneeAcademique_CellContentClick);
-            // 
-            // BtnSelect
-            // 
-            this.BtnSelect.Location = new System.Drawing.Point(260, 20);
-            this.BtnSelect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(144, 35);
-            this.BtnSelect.TabIndex = 3;
-            this.BtnSelect.Text = "&Selectionner";
-            this.BtnSelect.UseVisualStyleBackColor = true;
-            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
-            // 
-            // txtTexte
-            // 
-            this.txtTexte.AutoSize = true;
-            this.txtTexte.Location = new System.Drawing.Point(32, 77);
-            this.txtTexte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtTexte.Name = "txtTexte";
-            this.txtTexte.Size = new System.Drawing.Size(48, 20);
-            this.txtTexte.TabIndex = 2;
-            this.txtTexte.Text = "Texte";
-            // 
+            //
+            // lblLibelle
+            //
+            this.lblLibelle.AutoSize = true;
+            this.lblLibelle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLibelle.ForeColor = System.Drawing.Color.White;
+            this.lblLibelle.Location = new System.Drawing.Point(30, 80);
+            this.lblLibelle.Name = "lblLibelle";
+            this.lblLibelle.Size = new System.Drawing.Size(52, 19);
+            this.lblLibelle.TabIndex = 1;
+            this.lblLibelle.Text = "Libelle";
+            //
             // txtLibelleAnneeAcademique
-            // 
-            this.txtLibelleAnneeAcademique.Location = new System.Drawing.Point(32, 123);
-            this.txtLibelleAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            //
+            this.txtLibelleAnneeAcademique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtLibelleAnneeAcademique.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.txtLibelleAnneeAcademique.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
+            this.txtLibelleAnneeAcademique.BorderRadius = 5;
+            this.txtLibelleAnneeAcademique.BorderSize = 2;
+            this.txtLibelleAnneeAcademique.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLibelleAnneeAcademique.ForeColor = System.Drawing.Color.White;
+            this.txtLibelleAnneeAcademique.Location = new System.Drawing.Point(30, 105);
+            this.txtLibelleAnneeAcademique.Multiline = false;
             this.txtLibelleAnneeAcademique.Name = "txtLibelleAnneeAcademique";
-            this.txtLibelleAnneeAcademique.Size = new System.Drawing.Size(244, 26);
-            this.txtLibelleAnneeAcademique.TabIndex = 1;
-            this.txtLibelleAnneeAcademique.TextChanged += new System.EventHandler(this.txtLibelleAnneeAcademique_TextChanged);
-            // 
+            this.txtLibelleAnneeAcademique.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtLibelleAnneeAcademique.PasswordChar = false;
+            this.txtLibelleAnneeAcademique.PlaceholderColor = System.Drawing.Color.Gray;
+            this.txtLibelleAnneeAcademique.PlaceholderText = "Ex: 2024-2025";
+            this.txtLibelleAnneeAcademique.Size = new System.Drawing.Size(230, 35);
+            this.txtLibelleAnneeAcademique.TabIndex = 2;
+            this.txtLibelleAnneeAcademique.Texts = "";
+            this.txtLibelleAnneeAcademique.UnderlinedStyle = false;
+            //
+            // lblValeur
+            //
+            this.lblValeur.AutoSize = true;
+            this.lblValeur.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValeur.ForeColor = System.Drawing.Color.White;
+            this.lblValeur.Location = new System.Drawing.Point(30, 160);
+            this.lblValeur.Name = "lblValeur";
+            this.lblValeur.Size = new System.Drawing.Size(86, 19);
+            this.lblValeur.TabIndex = 3;
+            this.lblValeur.Text = "Annee (Val)";
+            //
             // txtAnneeAcademiqueVal
-            // 
-            this.txtAnneeAcademiqueVal.Location = new System.Drawing.Point(32, 254);
-            this.txtAnneeAcademiqueVal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            //
+            this.txtAnneeAcademiqueVal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtAnneeAcademiqueVal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.txtAnneeAcademiqueVal.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
+            this.txtAnneeAcademiqueVal.BorderRadius = 5;
+            this.txtAnneeAcademiqueVal.BorderSize = 2;
+            this.txtAnneeAcademiqueVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnneeAcademiqueVal.ForeColor = System.Drawing.Color.White;
+            this.txtAnneeAcademiqueVal.Location = new System.Drawing.Point(30, 185);
+            this.txtAnneeAcademiqueVal.Multiline = false;
             this.txtAnneeAcademiqueVal.Name = "txtAnneeAcademiqueVal";
-            this.txtAnneeAcademiqueVal.Size = new System.Drawing.Size(244, 26);
-            this.txtAnneeAcademiqueVal.TabIndex = 2;
-            // 
-            // txtValeur
-            // 
-            this.txtValeur.AutoSize = true;
-            this.txtValeur.Location = new System.Drawing.Point(32, 208);
-            this.txtValeur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtValeur.Name = "txtValeur";
-            this.txtValeur.Size = new System.Drawing.Size(55, 20);
-            this.txtValeur.TabIndex = 4;
-            this.txtValeur.Text = "Valeur";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(141, 462);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(162, 35);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "&Ajouter";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(141, 540);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(162, 35);
-            this.btnEdit.TabIndex = 5;
-            this.btnEdit.Text = "&Modifier";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Location = new System.Drawing.Point(141, 618);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(162, 35);
-            this.btnRemove.TabIndex = 6;
-            this.btnRemove.Text = "&Supprimer";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.button4_Click);
-            // 
+            this.txtAnneeAcademiqueVal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtAnneeAcademiqueVal.PasswordChar = false;
+            this.txtAnneeAcademiqueVal.PlaceholderColor = System.Drawing.Color.Gray;
+            this.txtAnneeAcademiqueVal.PlaceholderText = "Ex: 2024";
+            this.txtAnneeAcademiqueVal.Size = new System.Drawing.Size(230, 35);
+            this.txtAnneeAcademiqueVal.TabIndex = 4;
+            this.txtAnneeAcademiqueVal.Texts = "";
+            this.txtAnneeAcademiqueVal.UnderlinedStyle = false;
+            //
+            // btnSelectionner
+            //
+            this.btnSelectionner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnSelectionner.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSelectionner.BorderRadius = 5;
+            this.btnSelectionner.BorderSize = 0;
+            this.btnSelectionner.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnSelectionner.FlatAppearance.BorderSize = 0;
+            this.btnSelectionner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectionner.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectionner.ForeColor = System.Drawing.Color.White;
+            this.btnSelectionner.Location = new System.Drawing.Point(30, 260);
+            this.btnSelectionner.Name = "btnSelectionner";
+            this.btnSelectionner.Size = new System.Drawing.Size(230, 40);
+            this.btnSelectionner.TabIndex = 5;
+            this.btnSelectionner.Text = "Selectionner";
+            this.btnSelectionner.TextColor = System.Drawing.Color.White;
+            this.btnSelectionner.UseVisualStyleBackColor = false;
+            this.btnSelectionner.Click += new System.EventHandler(this.btnSelectionner_Click);
+            //
+            // btnAjouter
+            //
+            this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnAjouter.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAjouter.BorderRadius = 5;
+            this.btnAjouter.BorderSize = 0;
+            this.btnAjouter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnAjouter.FlatAppearance.BorderSize = 0;
+            this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.ForeColor = System.Drawing.Color.White;
+            this.btnAjouter.Location = new System.Drawing.Point(30, 310);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(230, 40);
+            this.btnAjouter.TabIndex = 6;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.TextColor = System.Drawing.Color.White;
+            this.btnAjouter.UseVisualStyleBackColor = false;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            //
+            // btnModifier
+            //
+            this.btnModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnModifier.BorderColor = System.Drawing.Color.Transparent;
+            this.btnModifier.BorderRadius = 5;
+            this.btnModifier.BorderSize = 0;
+            this.btnModifier.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
+            this.btnModifier.FlatAppearance.BorderSize = 0;
+            this.btnModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifier.ForeColor = System.Drawing.Color.White;
+            this.btnModifier.Location = new System.Drawing.Point(30, 360);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(230, 40);
+            this.btnModifier.TabIndex = 7;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.TextColor = System.Drawing.Color.White;
+            this.btnModifier.UseVisualStyleBackColor = false;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            //
+            // btnSupprimer
+            //
+            this.btnSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
+            this.btnSupprimer.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSupprimer.BorderRadius = 5;
+            this.btnSupprimer.BorderSize = 0;
+            this.btnSupprimer.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
+            this.btnSupprimer.FlatAppearance.BorderSize = 0;
+            this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.ForeColor = System.Drawing.Color.White;
+            this.btnSupprimer.Location = new System.Drawing.Point(30, 410);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(230, 40);
+            this.btnSupprimer.TabIndex = 8;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextColor = System.Drawing.Color.White;
+            this.btnSupprimer.UseVisualStyleBackColor = false;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            //
             // frmAnneeAcademique
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 692);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(880, 530);
             this.ControlBox = false;
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnSupprimer);
+            this.Controls.Add(this.btnModifier);
+            this.Controls.Add(this.btnAjouter);
+            this.Controls.Add(this.btnSelectionner);
             this.Controls.Add(this.txtAnneeAcademiqueVal);
-            this.Controls.Add(this.txtValeur);
+            this.Controls.Add(this.lblValeur);
             this.Controls.Add(this.txtLibelleAnneeAcademique);
-            this.Controls.Add(this.txtTexte);
-            this.Controls.Add(this.BtnSelect);
+            this.Controls.Add(this.lblLibelle);
             this.Controls.Add(this.dgAnneeAcademique);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAnneeAcademique";
-            this.Text = "AnneeAcademique";
+            this.Text = "Gestion des Annees Academiques";
             this.Load += new System.EventHandler(this.frmAnneeAcademique_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAnneeAcademique)).EndInit();
             this.ResumeLayout(false);
@@ -160,13 +229,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgAnneeAcademique;
-        private System.Windows.Forms.Button BtnSelect;
-        private System.Windows.Forms.Label txtTexte;
-        private System.Windows.Forms.TextBox txtLibelleAnneeAcademique;
-        private System.Windows.Forms.TextBox txtAnneeAcademiqueVal;
-        private System.Windows.Forms.Label txtValeur;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label lblLibelle;
+        private CustomControls.CustomTextBox txtLibelleAnneeAcademique;
+        private System.Windows.Forms.Label lblValeur;
+        private CustomControls.CustomTextBox txtAnneeAcademiqueVal;
+        private CustomControls.CustomButton btnSelectionner;
+        private CustomControls.CustomButton btnAjouter;
+        private CustomControls.CustomButton btnModifier;
+        private CustomControls.CustomButton btnSupprimer;
     }
 }

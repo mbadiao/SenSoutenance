@@ -110,6 +110,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CustomButton.cs" />
+    <Compile Include="CustomControls\CustomTextBox.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,7 +140,32 @@
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\DataGridViewStyler.cs" />
     <Compile Include="Shared\FilerList.cs" />
+    <Compile Include="Views\frmCandidat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCandidat.Designer.cs">
+      <DependentUpon>frmCandidat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDepartement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDepartement.Designer.cs">
+      <DependentUpon>frmDepartement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMemoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMemoire.Designer.cs">
+      <DependentUpon>frmMemoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmSoutenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmSoutenance.Designer.cs">
+      <DependentUpon>frmSoutenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Parametre\frmAnneeAcademique.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +217,18 @@
     <EmbeddedResource Include="Views\Parametre\frmSession.resx">
       <DependentUpon>frmSession.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCandidat.resx">
+      <DependentUpon>frmCandidat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDepartement.resx">
+      <DependentUpon>frmDepartement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMemoire.resx">
+      <DependentUpon>frmMemoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmSoutenance.resx">
+      <DependentUpon>frmSoutenance.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,7 +243,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

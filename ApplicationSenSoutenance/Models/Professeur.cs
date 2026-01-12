@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationSenSoutenance.Models
 {
-    public class Professeur:Utilisateur
+    public class Professeur : Utilisateur
     {
-        [Required,MaxLength(80)]
+        [Required, MaxLength(80)]
         public string SpecialiteProfesseur { get; set; }
+
+        [MaxLength(100)]
+        public string GradeProfesseur { get; set; }
     }
 }

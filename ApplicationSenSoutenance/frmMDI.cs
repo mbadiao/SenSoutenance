@@ -1,89 +1,110 @@
-﻿using ApplicationSenSoutenance.Views;
+using ApplicationSenSoutenance.CustomControls;
+using ApplicationSenSoutenance.Views;
 using ApplicationSenSoutenance.Views.Parametre;
 using Microsoft.VisualBasic.Devices;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance
 {
     public partial class frmMDI : Form
     {
+        private CustomButton activeButton = null;
+        private Color defaultButtonColor = ColorTranslator.FromHtml("#7A5CF9");
+        private Color activeButtonColor = ColorTranslator.FromHtml("#AD2EC6");
+
         public frmMDI()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// methode permettant de fermer tout les forms dans le ParentMDI
-        /// </summary>
-
-        private void fermer()
+        private void FermerFormulairesEnfants()
         {
-            Form[] charr = this.MdiChildren;
+            foreach (Form form in this.MdiChildren)
+                form.Close();
+        }
 
-            // Pour chaque formulaire enfant, on le ferme
-            foreach (Form chform in charr)
+        private void OuvrirFormulaire(Form formulaire)
+        {
+            FermerFormulairesEnfants();
+            formulaire.MdiParent = this;
+            formulaire.Show();
+            formulaire.WindowState = FormWindowState.Maximized;
+        }
+
+        private void HighlightActiveButton(CustomButton button)
+        {
+            if (activeButton != null)
             {
-                // chform.WindowState = FormWindowState.Maximized; (optionnel)
-                chform.Close();
+                activeButton.ButtonColor = defaultButtonColor;
+                activeButton.BackColor = defaultButtonColor;
             }
-        }
 
-        private void seDeconnecterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmConnexion f = new frmConnexion();
-            f.Show();
-            this.Close();
-        }
-
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void anneeAcademiqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmAnneeAcademique f = new frmAnneeAcademique();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized; // ✅ Maximisé au lieu de Minimized
-        }
-        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmSession f = new frmSession();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
-        }
-
-        private void professeurToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            // Code à mettre dans l'événement clic de votre menu par exemple
-            frmProfesseur f = new frmProfesseur();
-            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            button.ButtonColor = activeButtonColor;
+            button.BackColor = activeButtonColor;
+            activeButton = button;
         }
 
         private void frmMDI_Load(object sender, EventArgs e)
         {
-            Computer myComputer = new Computer();
-            this.Width = myComputer.Screen.Bounds.Width;
-            this.Height = myComputer.Screen.Bounds.Height;
+            var screen = new Computer().Screen.Bounds;
+            this.Width = screen.Width;
+            this.Height = screen.Height;
             this.Location = new Point(0, 0);
+        }
+
+        private void btnCandidat_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnCandidat);
+            OuvrirFormulaire(new frmCandidat());
+        }
+
+        private void btnDepartement_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnDepartement);
+            OuvrirFormulaire(new frmDepartement());
+        }
+
+        private void btnMemoire_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnMemoire);
+            OuvrirFormulaire(new frmMemoire());
+        }
+
+        private void btnSoutenance_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnSoutenance);
+            OuvrirFormulaire(new frmSoutenance());
+        }
+
+        private void btnProfesseur_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnProfesseur);
+            OuvrirFormulaire(new frmProfesseur());
+        }
+
+        private void btnSession_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnSession);
+            OuvrirFormulaire(new frmSession());
+        }
+
+        private void btnAnneeAcademique_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(btnAnneeAcademique);
+            OuvrirFormulaire(new frmAnneeAcademique());
+        }
+
+        private void btnSeDeconnecter_Click(object sender, EventArgs e)
+        {
+            new frmConnexion().Show();
+            this.Close();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void candidatToolStripMenuItem_Click(object sender, EventArgs e)

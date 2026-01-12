@@ -54,7 +54,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             txtSession.Focus();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void ChargerDonnees()
         {
             if (string.IsNullOrWhiteSpace(txtSession.Text))
             {
@@ -84,7 +84,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             cbxAnneeAcademique.SelectedValue = session.IdAnneeAcademique;
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (dgSession.CurrentRow == null) return;
 
@@ -98,7 +98,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             Effacer();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
             if (dgSession.CurrentRow == null) return;
 
@@ -110,7 +110,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             Effacer();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSupprimer_Click(object sender, EventArgs e)
         {
             var liste = db.sessions.Include(s => s.AnneeAcademique).ToList();
 
