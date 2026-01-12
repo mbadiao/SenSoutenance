@@ -1,15 +1,14 @@
-using ApplicationSenSoutenance.Models;
-using ApplicationSenSoutenance.Shared;
+﻿using ApplicationSenSoutenance.Models;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.Entity; // pour Include
 
 namespace ApplicationSenSoutenance.Views.Parametre
 {
     public partial class frmSession : Form
     {
-        BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
-        FilerList filer = new FilerList();
+        BdSenSoutenanceContext db = new BdSenSoutenanceContext();
 
         public frmSession()
         {
@@ -18,149 +17,120 @@ namespace ApplicationSenSoutenance.Views.Parametre
 
         private void frmSession_Load(object sender, EventArgs e)
         {
-            DataGridViewStyler.ApplyDarkTheme(dgSession);
-            ChargerComboBoxes();
             ChargerDonnees();
-        }
-
-        private void ChargerComboBoxes()
-        {
-            cbbAnneeAcademique.DataSource = filer.FillAnneeAcademique();
-            cbbAnneeAcademique.DisplayMember = "Text";
-            cbbAnneeAcademique.ValueMember = "Value";
         }
 
         private void ChargerDonnees()
         {
-            try
-            {
-                dgSession.DataSource = bd.sessions.ToList();
-                dgSession.Columns["AnneeAcademique"].Visible = false;
-                dgSession.Columns["Memoires"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors du chargement : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Charger le DataGridView avec le Libelle de l'année mappé
+            var sessions = db.sessions
+                             .Include(s => s.AnneeAcademique)
+                             .Select(s => new
+                             {
+                                 s.IdSession,
+                                 s.LibelleSession,
+                                 Annee = s.AnneeAcademique.LibelleAnneeAcademique
+                             })
+                             .ToList();
+
+            dgSession.DataSource = sessions;
+
+            // Masquer l'ID et mettre l'ordre
+            dgSession.Columns["IdSession"].Visible = false;
+            dgSession.Columns["LibelleSession"].DisplayIndex = 0;
+            dgSession.Columns["Annee"].DisplayIndex = 1;
+
+            // Charger le ComboBox directement depuis la table
+            cbxAnneeAcademique.DataSource = db.anneeAcademiques.ToList();
+            cbxAnneeAcademique.DisplayMember = "LibelleAnnee";
+            cbxAnneeAcademique.ValueMember = "IdAnneeAcademique";
         }
 
         private void Effacer()
         {
-            txtSession.Texts = "";
-            cbbAnneeAcademique.SelectedIndex = 0;
+            txtSession.Clear();
+            cbxAnneeAcademique.SelectedIndex = 0;
             ChargerDonnees();
             txtSession.Focus();
         }
 
-        private void btnSelectionner_Click(object sender, EventArgs e)
+        private void ChargerDonnees()
+        {
+            if (string.IsNullOrWhiteSpace(txtSession.Text))
+            {
+                MessageBox.Show("Veuillez saisir le libellé de la session.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Session session = new Session
+            {
+                LibelleSession = txtSession.Text,
+                IdAnneeAcademique = (int)cbxAnneeAcademique.SelectedValue
+            };
+
+            db.sessions.Add(session);
+            db.SaveChanges();
+            Effacer();
+        }
+
+        private void BtnSelect_Click(object sender, EventArgs e)
         {
             if (dgSession.CurrentRow == null) return;
 
-            txtSession.Texts = dgSession.CurrentRow.Cells["LibelleSession"].Value?.ToString() ?? "";
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
+            Session session = db.sessions.Find(id);
 
-            var idAnnee = dgSession.CurrentRow.Cells["IdAnneeAcademique"].Value?.ToString();
-            if (!string.IsNullOrEmpty(idAnnee))
-                cbbAnneeAcademique.SelectedValue = idAnnee;
+            txtSession.Text = session.LibelleSession;
+            cbxAnneeAcademique.SelectedValue = session.IdAnneeAcademique;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSession.Texts))
-            {
-                MessageBox.Show("Veuillez saisir le libelle de la session.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            if (dgSession.CurrentRow == null) return;
 
-            if (cbbAnneeAcademique.SelectedValue == null)
-            {
-                MessageBox.Show("Veuillez selectionner une annee academique.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
+            Session session = db.sessions.Find(id);
 
-            try
-            {
-                var session = new Session
-                {
-                    LibelleSession = txtSession.Texts,
-                    IdAnneeAcademique = int.Parse(cbbAnneeAcademique.SelectedValue.ToString())
-                };
-                bd.sessions.Add(session);
-                bd.SaveChanges();
-                Effacer();
-                MessageBox.Show("Session ajoutee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de l'ajout : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            session.LibelleSession = txtSession.Text;
+            session.IdAnneeAcademique = (int)cbxAnneeAcademique.SelectedValue;
+
+            db.SaveChanges();
+            Effacer();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (dgSession.CurrentRow == null) return;
 
-            try
-            {
-                int id = int.Parse(dgSession.CurrentRow.Cells["IdSession"].Value.ToString());
-                var session = bd.sessions.Find(id);
-                if (session != null)
-                {
-                    session.LibelleSession = txtSession.Texts;
-                    session.IdAnneeAcademique = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
-                    bd.SaveChanges();
-                    Effacer();
-                    MessageBox.Show("Session modifiee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la modification : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int id = (int)dgSession.CurrentRow.Cells["IdSession"].Value;
+            Session session = db.sessions.Find(id);
+
+            db.sessions.Remove(session);
+            db.SaveChanges();
+            Effacer();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            if (dgSession.CurrentRow == null) return;
+            var liste = db.sessions.Include(s => s.AnneeAcademique).ToList();
 
-            var result = MessageBox.Show("Voulez-vous vraiment supprimer cette session ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result != DialogResult.Yes) return;
+            if (!string.IsNullOrWhiteSpace(txtSession.Text))
+                liste = liste.Where(s => s.LibelleSession.Contains(txtSession.Text)).ToList();
 
-            try
+            if (cbxAnneeAcademique.SelectedIndex > 0)
+                liste = liste.Where(s => s.AnneeAcademique.IdAnneeAcademique == (int)cbxAnneeAcademique.SelectedValue).ToList();
+
+            dgSession.DataSource = liste.Select(s => new
             {
-                int id = int.Parse(dgSession.CurrentRow.Cells["IdSession"].Value.ToString());
-                var session = bd.sessions.Find(id);
-                if (session != null)
-                {
-                    bd.sessions.Remove(session);
-                    bd.SaveChanges();
-                    Effacer();
-                    MessageBox.Show("Session supprimee avec succes.", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la suppression : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                s.IdSession,
+                s.LibelleSession,
+                Annee = s.AnneeAcademique.LibelleAnneeAcademique
+            }).ToList();
         }
 
-        private void btnRechercher_Click(object sender, EventArgs e)
+        private void txtSession_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var liste = bd.sessions.ToList();
 
-                if (!string.IsNullOrEmpty(txtRSession.Texts))
-                    liste = liste.Where(s => s.LibelleSession.Contains(txtRSession.Texts)).ToList();
-
-                if (!string.IsNullOrEmpty(txtRanneeAcademique.Texts))
-                    liste = liste.Where(s => s.AnneeAcademique.LibelleAnneeAcademique.Contains(txtRanneeAcademique.Texts)).ToList();
-
-                dgSession.DataSource = liste;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la recherche : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

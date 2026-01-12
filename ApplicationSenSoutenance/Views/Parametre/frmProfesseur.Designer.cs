@@ -35,29 +35,19 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.dgProfesseur = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgProfesseur)).BeginInit();
             this.SuspendLayout();
-            //
-            // lblTitre
-            //
-            this.lblTitre.AutoSize = true;
-            this.lblTitre.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
-            this.lblTitre.Location = new System.Drawing.Point(30, 20);
-            this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(230, 30);
-            this.lblTitre.TabIndex = 0;
-            this.lblTitre.Text = "Gestion des Professeurs";
-            //
-            // lblNom
-            //
-            this.lblNom.AutoSize = true;
-            this.lblNom.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblNom.ForeColor = System.Drawing.Color.White;
-            this.lblNom.Location = new System.Drawing.Point(30, 70);
-            this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(41, 19);
-            this.lblNom.TabIndex = 1;
-            this.lblNom.Text = "Nom";
-            //
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(44, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nom";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // txtNomP
             //
             this.txtNomP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
