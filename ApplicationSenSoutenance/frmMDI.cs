@@ -85,5 +85,15 @@ namespace ApplicationSenSoutenance
             this.Height = myComputer.Screen.Bounds.Height;
             this.Location = new Point(0, 0);
         }
+
+        private void candidatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            // Code à mettre dans l'événement clic de votre menu par exemple
+            frmCandidat f = new frmCandidat();
+            f.MdiParent = this; // 'this' désigne le formulaire frmMDI (le parent)
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
     }
 }

@@ -56,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNomP
             // 
@@ -83,6 +84,7 @@
             this.label2.Size = new System.Drawing.Size(98, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Spécialité";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtSpecialiteP
             // 
@@ -90,6 +92,7 @@
             this.txtSpecialiteP.Name = "txtSpecialiteP";
             this.txtSpecialiteP.Size = new System.Drawing.Size(274, 26);
             this.txtSpecialiteP.TabIndex = 5;
+            this.txtSpecialiteP.TextChanged += new System.EventHandler(this.txtSpecialiteP_TextChanged);
             // 
             // label3
             // 
@@ -101,6 +104,7 @@
             this.label3.Size = new System.Drawing.Size(59, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtTelephoneP
             // 
@@ -108,6 +112,7 @@
             this.txtTelephoneP.Name = "txtTelephoneP";
             this.txtTelephoneP.Size = new System.Drawing.Size(274, 26);
             this.txtTelephoneP.TabIndex = 4;
+            this.txtTelephoneP.TextChanged += new System.EventHandler(this.txtTelephoneP_TextChanged);
             // 
             // label4
             // 
@@ -119,6 +124,7 @@
             this.label4.Size = new System.Drawing.Size(105, 22);
             this.label4.TabIndex = 6;
             this.label4.Text = "Téléphone";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtPrenomP
             // 
@@ -126,6 +132,7 @@
             this.txtPrenomP.Name = "txtPrenomP";
             this.txtPrenomP.Size = new System.Drawing.Size(274, 26);
             this.txtPrenomP.TabIndex = 2;
+            this.txtPrenomP.TextChanged += new System.EventHandler(this.txtPrenomP_TextChanged);
             // 
             // label5
             // 
@@ -137,6 +144,7 @@
             this.label5.Size = new System.Drawing.Size(78, 22);
             this.label5.TabIndex = 8;
             this.label5.Text = "Prenom";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnSupprimerP
             // 

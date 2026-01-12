@@ -43,7 +43,7 @@
             // dgAnneeAcademique
             // 
             this.dgAnneeAcademique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAnneeAcademique.Location = new System.Drawing.Point(344, 123);
+            this.dgAnneeAcademique.Location = new System.Drawing.Point(348, 65);
             this.dgAnneeAcademique.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgAnneeAcademique.Name = "dgAnneeAcademique";
             this.dgAnneeAcademique.RowHeadersWidth = 62;
