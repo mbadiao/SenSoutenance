@@ -218,5 +218,10 @@ namespace ApplicationSenSoutenance.Views
                 MessageBox.Show("Erreur lors de la suppression : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dgSoutenance_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

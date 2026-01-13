@@ -141,5 +141,10 @@ namespace ApplicationSenSoutenance.Views
                 MessageBox.Show("Erreur lors de la suppression : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtEmail__TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

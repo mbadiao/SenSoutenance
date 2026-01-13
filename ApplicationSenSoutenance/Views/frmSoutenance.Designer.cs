@@ -43,31 +43,119 @@ namespace ApplicationSenSoutenance.Views
             this.dgSoutenance = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgSoutenance)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // lblTitre
-            //
+            // 
             this.lblTitre.AutoSize = true;
             this.lblTitre.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.lblTitre.Location = new System.Drawing.Point(30, 15);
             this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(240, 30);
+            this.lblTitre.Size = new System.Drawing.Size(270, 30);
             this.lblTitre.TabIndex = 0;
             this.lblTitre.Text = "Gestion des Soutenances";
-            //
+            // 
             // lblMemoire
-            //
+            // 
             this.lblMemoire.AutoSize = true;
             this.lblMemoire.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblMemoire.ForeColor = System.Drawing.Color.White;
             this.lblMemoire.Location = new System.Drawing.Point(30, 55);
             this.lblMemoire.Name = "lblMemoire";
-            this.lblMemoire.Size = new System.Drawing.Size(57, 15);
+            this.lblMemoire.Size = new System.Drawing.Size(58, 15);
             this.lblMemoire.TabIndex = 1;
             this.lblMemoire.Text = "Memoire";
-            //
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(30, 105);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(103, 15);
+            this.lblDate.TabIndex = 3;
+            this.lblDate.Text = "Date Soutenance";
+            // 
+            // lblLieu
+            // 
+            this.lblLieu.AutoSize = true;
+            this.lblLieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLieu.ForeColor = System.Drawing.Color.White;
+            this.lblLieu.Location = new System.Drawing.Point(175, 105);
+            this.lblLieu.Name = "lblLieu";
+            this.lblLieu.Size = new System.Drawing.Size(30, 15);
+            this.lblLieu.TabIndex = 5;
+            this.lblLieu.Text = "Lieu";
+            // 
+            // lblPresident
+            // 
+            this.lblPresident.AutoSize = true;
+            this.lblPresident.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPresident.ForeColor = System.Drawing.Color.White;
+            this.lblPresident.Location = new System.Drawing.Point(30, 160);
+            this.lblPresident.Name = "lblPresident";
+            this.lblPresident.Size = new System.Drawing.Size(60, 15);
+            this.lblPresident.TabIndex = 7;
+            this.lblPresident.Text = "President";
+            // 
+            // lblRapporteur
+            // 
+            this.lblRapporteur.AutoSize = true;
+            this.lblRapporteur.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRapporteur.ForeColor = System.Drawing.Color.White;
+            this.lblRapporteur.Location = new System.Drawing.Point(30, 210);
+            this.lblRapporteur.Name = "lblRapporteur";
+            this.lblRapporteur.Size = new System.Drawing.Size(71, 15);
+            this.lblRapporteur.TabIndex = 9;
+            this.lblRapporteur.Text = "Rapporteur";
+            // 
+            // lblExaminateur1
+            // 
+            this.lblExaminateur1.AutoSize = true;
+            this.lblExaminateur1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblExaminateur1.ForeColor = System.Drawing.Color.White;
+            this.lblExaminateur1.Location = new System.Drawing.Point(30, 260);
+            this.lblExaminateur1.Name = "lblExaminateur1";
+            this.lblExaminateur1.Size = new System.Drawing.Size(87, 15);
+            this.lblExaminateur1.TabIndex = 11;
+            this.lblExaminateur1.Text = "Examinateur 1";
+            // 
+            // lblExaminateur2
+            // 
+            this.lblExaminateur2.AutoSize = true;
+            this.lblExaminateur2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblExaminateur2.ForeColor = System.Drawing.Color.White;
+            this.lblExaminateur2.Location = new System.Drawing.Point(30, 310);
+            this.lblExaminateur2.Name = "lblExaminateur2";
+            this.lblExaminateur2.Size = new System.Drawing.Size(120, 15);
+            this.lblExaminateur2.TabIndex = 13;
+            this.lblExaminateur2.Text = "Examinateur 2 (opt.)";
+            // 
+            // lblNote
+            // 
+            this.lblNote.AutoSize = true;
+            this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblNote.ForeColor = System.Drawing.Color.White;
+            this.lblNote.Location = new System.Drawing.Point(30, 360);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(57, 15);
+            this.lblNote.TabIndex = 15;
+            this.lblNote.Text = "Note /20";
+            // 
+            // lblResultat
+            // 
+            this.lblResultat.AutoSize = true;
+            this.lblResultat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblResultat.ForeColor = System.Drawing.Color.White;
+            this.lblResultat.Location = new System.Drawing.Point(145, 360);
+            this.lblResultat.Name = "lblResultat";
+            this.lblResultat.Size = new System.Drawing.Size(53, 15);
+            this.lblResultat.TabIndex = 17;
+            this.lblResultat.Text = "Resultat";
+            // 
             // cbbMemoire
-            //
+            // 
             this.cbbMemoire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbMemoire.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMemoire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,20 +165,9 @@ namespace ApplicationSenSoutenance.Views
             this.cbbMemoire.Name = "cbbMemoire";
             this.cbbMemoire.Size = new System.Drawing.Size(280, 23);
             this.cbbMemoire.TabIndex = 2;
-            //
-            // lblDate
-            //
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(30, 105);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(100, 15);
-            this.lblDate.TabIndex = 3;
-            this.lblDate.Text = "Date Soutenance";
-            //
+            // 
             // dtpDateSoutenance
-            //
+            // 
             this.dtpDateSoutenance.CalendarForeColor = System.Drawing.Color.White;
             this.dtpDateSoutenance.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.dtpDateSoutenance.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -99,20 +176,9 @@ namespace ApplicationSenSoutenance.Views
             this.dtpDateSoutenance.Name = "dtpDateSoutenance";
             this.dtpDateSoutenance.Size = new System.Drawing.Size(130, 23);
             this.dtpDateSoutenance.TabIndex = 4;
-            //
-            // lblLieu
-            //
-            this.lblLieu.AutoSize = true;
-            this.lblLieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblLieu.ForeColor = System.Drawing.Color.White;
-            this.lblLieu.Location = new System.Drawing.Point(175, 105);
-            this.lblLieu.Name = "lblLieu";
-            this.lblLieu.Size = new System.Drawing.Size(30, 15);
-            this.lblLieu.TabIndex = 5;
-            this.lblLieu.Text = "Lieu";
-            //
+            // 
             // txtLieu
-            //
+            // 
             this.txtLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtLieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.txtLieu.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
@@ -121,29 +187,20 @@ namespace ApplicationSenSoutenance.Views
             this.txtLieu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLieu.ForeColor = System.Drawing.Color.White;
             this.txtLieu.Location = new System.Drawing.Point(175, 120);
+            this.txtLieu.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLieu.Multiline = false;
             this.txtLieu.Name = "txtLieu";
             this.txtLieu.Padding = new System.Windows.Forms.Padding(5);
             this.txtLieu.PasswordChar = false;
             this.txtLieu.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtLieu.PlaceholderText = "Salle";
-            this.txtLieu.Size = new System.Drawing.Size(135, 30);
+            this.txtLieu.Size = new System.Drawing.Size(135, 26);
             this.txtLieu.TabIndex = 6;
             this.txtLieu.Texts = "";
             this.txtLieu.UnderlinedStyle = false;
-            //
-            // lblPresident
-            //
-            this.lblPresident.AutoSize = true;
-            this.lblPresident.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPresident.ForeColor = System.Drawing.Color.White;
-            this.lblPresident.Location = new System.Drawing.Point(30, 160);
-            this.lblPresident.Name = "lblPresident";
-            this.lblPresident.Size = new System.Drawing.Size(59, 15);
-            this.lblPresident.TabIndex = 7;
-            this.lblPresident.Text = "President";
-            //
+            // 
             // cbbPresident
-            //
+            // 
             this.cbbPresident.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbPresident.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPresident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -153,20 +210,9 @@ namespace ApplicationSenSoutenance.Views
             this.cbbPresident.Name = "cbbPresident";
             this.cbbPresident.Size = new System.Drawing.Size(280, 23);
             this.cbbPresident.TabIndex = 8;
-            //
-            // lblRapporteur
-            //
-            this.lblRapporteur.AutoSize = true;
-            this.lblRapporteur.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRapporteur.ForeColor = System.Drawing.Color.White;
-            this.lblRapporteur.Location = new System.Drawing.Point(30, 210);
-            this.lblRapporteur.Name = "lblRapporteur";
-            this.lblRapporteur.Size = new System.Drawing.Size(67, 15);
-            this.lblRapporteur.TabIndex = 9;
-            this.lblRapporteur.Text = "Rapporteur";
-            //
+            // 
             // cbbRapporteur
-            //
+            // 
             this.cbbRapporteur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbRapporteur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRapporteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -176,20 +222,9 @@ namespace ApplicationSenSoutenance.Views
             this.cbbRapporteur.Name = "cbbRapporteur";
             this.cbbRapporteur.Size = new System.Drawing.Size(280, 23);
             this.cbbRapporteur.TabIndex = 10;
-            //
-            // lblExaminateur1
-            //
-            this.lblExaminateur1.AutoSize = true;
-            this.lblExaminateur1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblExaminateur1.ForeColor = System.Drawing.Color.White;
-            this.lblExaminateur1.Location = new System.Drawing.Point(30, 260);
-            this.lblExaminateur1.Name = "lblExaminateur1";
-            this.lblExaminateur1.Size = new System.Drawing.Size(82, 15);
-            this.lblExaminateur1.TabIndex = 11;
-            this.lblExaminateur1.Text = "Examinateur 1";
-            //
+            // 
             // cbbExaminateur1
-            //
+            // 
             this.cbbExaminateur1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbExaminateur1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbExaminateur1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -199,20 +234,9 @@ namespace ApplicationSenSoutenance.Views
             this.cbbExaminateur1.Name = "cbbExaminateur1";
             this.cbbExaminateur1.Size = new System.Drawing.Size(280, 23);
             this.cbbExaminateur1.TabIndex = 12;
-            //
-            // lblExaminateur2
-            //
-            this.lblExaminateur2.AutoSize = true;
-            this.lblExaminateur2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblExaminateur2.ForeColor = System.Drawing.Color.White;
-            this.lblExaminateur2.Location = new System.Drawing.Point(30, 310);
-            this.lblExaminateur2.Name = "lblExaminateur2";
-            this.lblExaminateur2.Size = new System.Drawing.Size(119, 15);
-            this.lblExaminateur2.TabIndex = 13;
-            this.lblExaminateur2.Text = "Examinateur 2 (opt.)";
-            //
+            // 
             // cbbExaminateur2
-            //
+            // 
             this.cbbExaminateur2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbExaminateur2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbExaminateur2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -222,20 +246,9 @@ namespace ApplicationSenSoutenance.Views
             this.cbbExaminateur2.Name = "cbbExaminateur2";
             this.cbbExaminateur2.Size = new System.Drawing.Size(280, 23);
             this.cbbExaminateur2.TabIndex = 14;
-            //
-            // lblNote
-            //
-            this.lblNote.AutoSize = true;
-            this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblNote.ForeColor = System.Drawing.Color.White;
-            this.lblNote.Location = new System.Drawing.Point(30, 360);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(55, 15);
-            this.lblNote.TabIndex = 15;
-            this.lblNote.Text = "Note /20";
-            //
+            // 
             // txtNote
-            //
+            // 
             this.txtNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.txtNote.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
@@ -244,42 +257,36 @@ namespace ApplicationSenSoutenance.Views
             this.txtNote.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNote.ForeColor = System.Drawing.Color.White;
             this.txtNote.Location = new System.Drawing.Point(30, 378);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNote.Multiline = false;
             this.txtNote.Name = "txtNote";
             this.txtNote.Padding = new System.Windows.Forms.Padding(5);
             this.txtNote.PasswordChar = false;
             this.txtNote.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtNote.PlaceholderText = "Ex: 15.5";
-            this.txtNote.Size = new System.Drawing.Size(100, 30);
+            this.txtNote.Size = new System.Drawing.Size(100, 26);
             this.txtNote.TabIndex = 16;
             this.txtNote.Texts = "";
             this.txtNote.UnderlinedStyle = false;
-            //
-            // lblResultat
-            //
-            this.lblResultat.AutoSize = true;
-            this.lblResultat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblResultat.ForeColor = System.Drawing.Color.White;
-            this.lblResultat.Location = new System.Drawing.Point(145, 360);
-            this.lblResultat.Name = "lblResultat";
-            this.lblResultat.Size = new System.Drawing.Size(51, 15);
-            this.lblResultat.TabIndex = 17;
-            this.lblResultat.Text = "Resultat";
-            //
+            // 
             // cbbResultat
-            //
+            // 
             this.cbbResultat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbResultat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbResultat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbResultat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbbResultat.ForeColor = System.Drawing.Color.White;
-            this.cbbResultat.Items.AddRange(new object[] { "", "Admis", "Ajourne" });
+            this.cbbResultat.Items.AddRange(new object[] {
+            "",
+            "Admis",
+            "Ajourne"});
             this.cbbResultat.Location = new System.Drawing.Point(145, 381);
             this.cbbResultat.Name = "cbbResultat";
             this.cbbResultat.Size = new System.Drawing.Size(165, 23);
             this.cbbResultat.TabIndex = 18;
-            //
+            // 
             // btnSelectionner
-            //
+            // 
             this.btnSelectionner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnSelectionner.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnSelectionner.BorderRadius = 10;
@@ -299,9 +306,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnSelectionner.TextColor = System.Drawing.Color.White;
             this.btnSelectionner.UseVisualStyleBackColor = false;
             this.btnSelectionner.Click += new System.EventHandler(this.btnSelectionner_Click);
-            //
+            // 
             // btnAjouter
-            //
+            // 
             this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnAjouter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnAjouter.BorderRadius = 10;
@@ -321,9 +328,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnAjouter.TextColor = System.Drawing.Color.White;
             this.btnAjouter.UseVisualStyleBackColor = false;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            //
+            // 
             // btnModifier
-            //
+            // 
             this.btnModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(205)))));
             this.btnModifier.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(205)))));
             this.btnModifier.BorderRadius = 10;
@@ -343,9 +350,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnModifier.TextColor = System.Drawing.Color.White;
             this.btnModifier.UseVisualStyleBackColor = false;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
-            //
+            // 
             // btnSupprimer
-            //
+            // 
             this.btnSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
             this.btnSupprimer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
             this.btnSupprimer.BorderRadius = 10;
@@ -365,20 +372,21 @@ namespace ApplicationSenSoutenance.Views
             this.btnSupprimer.TextColor = System.Drawing.Color.White;
             this.btnSupprimer.UseVisualStyleBackColor = false;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
-            //
+            // 
             // dgSoutenance
-            //
-            this.dgSoutenance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.dgSoutenance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgSoutenance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSoutenance.Location = new System.Drawing.Point(340, 55);
             this.dgSoutenance.Name = "dgSoutenance";
             this.dgSoutenance.Size = new System.Drawing.Size(620, 470);
             this.dgSoutenance.TabIndex = 23;
-            //
+            this.dgSoutenance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSoutenance_CellContentClick);
+            // 
             // frmSoutenance
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -414,6 +422,7 @@ namespace ApplicationSenSoutenance.Views
             ((System.ComponentModel.ISupportInitialize)(this.dgSoutenance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

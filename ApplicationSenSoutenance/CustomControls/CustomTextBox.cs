@@ -188,45 +188,52 @@ namespace ApplicationSenSoutenance.CustomControls
 
         private void InitializeComponent()
         {
-            this.textBox1 = new TextBox();
-            this.panelTextBox = new Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelTextBox = new System.Windows.Forms.Panel();
+            this.panelTextBox.SuspendLayout();
             this.SuspendLayout();
-
+            // 
             // textBox1
-            this.textBox1.BorderStyle = BorderStyle.None;
-            this.textBox1.Dock = DockStyle.Fill;
-            this.textBox1.Location = new Point(7, 7);
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(5, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new Size(230, 15);
+            this.textBox1.Size = new System.Drawing.Size(236, 18);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new EventHandler(this.textBox1_TextChanged);
-            this.textBox1.Click += new EventHandler(this.textBox1_Click);
-            this.textBox1.MouseEnter += new EventHandler(this.textBox1_MouseEnter);
-            this.textBox1.MouseLeave += new EventHandler(this.textBox1_MouseLeave);
-            this.textBox1.KeyPress += new KeyPressEventHandler(this.textBox1_KeyPress);
-            this.textBox1.Enter += new EventHandler(this.textBox1_Enter);
-            this.textBox1.Leave += new EventHandler(this.textBox1_Leave);
-
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
+            this.textBox1.MouseEnter += new System.EventHandler(this.textBox1_MouseEnter);
+            this.textBox1.MouseLeave += new System.EventHandler(this.textBox1_MouseLeave);
+            // 
             // panelTextBox
-            this.panelTextBox.BackColor = SystemColors.Window;
+            // 
+            this.panelTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.panelTextBox.Controls.Add(this.textBox1);
-            this.panelTextBox.Dock = DockStyle.Fill;
-            this.panelTextBox.Location = new Point(0, 0);
+            this.panelTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTextBox.Location = new System.Drawing.Point(0, 0);
             this.panelTextBox.Name = "panelTextBox";
-            this.panelTextBox.Padding = new Padding(7);
-            this.panelTextBox.Size = new Size(250, 30);
+            this.panelTextBox.Padding = new System.Windows.Forms.Padding(5);
+            this.panelTextBox.Size = new System.Drawing.Size(250, 30);
             this.panelTextBox.TabIndex = 0;
-
+            // 
             // CustomTextBox
-            this.AutoScaleMode = AutoScaleMode.None;
-            this.BackColor = SystemColors.Window;
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.panelTextBox);
-            this.Font = new Font("Microsoft Sans Serif", 9.5F);
-            this.ForeColor = Color.FromArgb(64, 64, 64);
-            this.Margin = new Padding(4);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomTextBox";
-            this.Size = new Size(250, 30);
+            this.Size = new System.Drawing.Size(250, 35);
+            this.panelTextBox.ResumeLayout(false);
+            this.panelTextBox.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         // Méthodes privées

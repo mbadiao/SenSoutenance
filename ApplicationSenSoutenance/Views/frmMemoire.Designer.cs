@@ -21,13 +21,9 @@ namespace ApplicationSenSoutenance.Views
             this.lblSujet = new System.Windows.Forms.Label();
             this.lblSession = new System.Windows.Forms.Label();
             this.lblCandidat = new System.Windows.Forms.Label();
-            this.lblDirecteur = new System.Windows.Forms.Label();
-            this.lblCoDirecteur = new System.Windows.Forms.Label();
             this.txtSujet = new ApplicationSenSoutenance.CustomControls.CustomTextBox();
             this.cbbSession = new System.Windows.Forms.ComboBox();
             this.cbbCandidat = new System.Windows.Forms.ComboBox();
-            this.cbbDirecteur = new System.Windows.Forms.ComboBox();
-            this.cbbCoDirecteur = new System.Windows.Forms.ComboBox();
             this.btnSelectionner = new ApplicationSenSoutenance.CustomControls.CustomButton();
             this.btnAjouter = new ApplicationSenSoutenance.CustomControls.CustomButton();
             this.btnModifier = new ApplicationSenSoutenance.CustomControls.CustomButton();
@@ -125,52 +121,6 @@ namespace ApplicationSenSoutenance.Views
             this.cbbCandidat.Size = new System.Drawing.Size(300, 25);
             this.cbbCandidat.TabIndex = 6;
             //
-            // lblDirecteur
-            //
-            this.lblDirecteur.AutoSize = true;
-            this.lblDirecteur.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDirecteur.ForeColor = System.Drawing.Color.White;
-            this.lblDirecteur.Location = new System.Drawing.Point(30, 295);
-            this.lblDirecteur.Name = "lblDirecteur";
-            this.lblDirecteur.Size = new System.Drawing.Size(133, 19);
-            this.lblDirecteur.TabIndex = 7;
-            this.lblDirecteur.Text = "Directeur Memoire";
-            //
-            // cbbDirecteur
-            //
-            this.cbbDirecteur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.cbbDirecteur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbDirecteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbDirecteur.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbDirecteur.ForeColor = System.Drawing.Color.White;
-            this.cbbDirecteur.Location = new System.Drawing.Point(30, 317);
-            this.cbbDirecteur.Name = "cbbDirecteur";
-            this.cbbDirecteur.Size = new System.Drawing.Size(300, 25);
-            this.cbbDirecteur.TabIndex = 8;
-            //
-            // lblCoDirecteur
-            //
-            this.lblCoDirecteur.AutoSize = true;
-            this.lblCoDirecteur.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCoDirecteur.ForeColor = System.Drawing.Color.White;
-            this.lblCoDirecteur.Location = new System.Drawing.Point(30, 355);
-            this.lblCoDirecteur.Name = "lblCoDirecteur";
-            this.lblCoDirecteur.Size = new System.Drawing.Size(155, 19);
-            this.lblCoDirecteur.TabIndex = 9;
-            this.lblCoDirecteur.Text = "Co-Directeur (optionnel)";
-            //
-            // cbbCoDirecteur
-            //
-            this.cbbCoDirecteur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.cbbCoDirecteur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCoDirecteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbCoDirecteur.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbCoDirecteur.ForeColor = System.Drawing.Color.White;
-            this.cbbCoDirecteur.Location = new System.Drawing.Point(30, 377);
-            this.cbbCoDirecteur.Name = "cbbCoDirecteur";
-            this.cbbCoDirecteur.Size = new System.Drawing.Size(300, 25);
-            this.cbbCoDirecteur.TabIndex = 10;
-            //
             // btnSelectionner
             //
             this.btnSelectionner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
@@ -184,10 +134,10 @@ namespace ApplicationSenSoutenance.Views
             this.btnSelectionner.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSelectionner.ForeColor = System.Drawing.Color.White;
             this.btnSelectionner.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
-            this.btnSelectionner.Location = new System.Drawing.Point(30, 430);
+            this.btnSelectionner.Location = new System.Drawing.Point(30, 310);
             this.btnSelectionner.Name = "btnSelectionner";
             this.btnSelectionner.Size = new System.Drawing.Size(130, 40);
-            this.btnSelectionner.TabIndex = 11;
+            this.btnSelectionner.TabIndex = 7;
             this.btnSelectionner.Text = "&Selectionner";
             this.btnSelectionner.TextColor = System.Drawing.Color.White;
             this.btnSelectionner.UseVisualStyleBackColor = false;
@@ -206,10 +156,10 @@ namespace ApplicationSenSoutenance.Views
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
-            this.btnAjouter.Location = new System.Drawing.Point(180, 430);
+            this.btnAjouter.Location = new System.Drawing.Point(180, 310);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(130, 40);
-            this.btnAjouter.TabIndex = 12;
+            this.btnAjouter.TabIndex = 8;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.TextColor = System.Drawing.Color.White;
             this.btnAjouter.UseVisualStyleBackColor = false;
@@ -228,10 +178,10 @@ namespace ApplicationSenSoutenance.Views
             this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
-            this.btnModifier.Location = new System.Drawing.Point(30, 490);
+            this.btnModifier.Location = new System.Drawing.Point(30, 370);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(130, 40);
-            this.btnModifier.TabIndex = 13;
+            this.btnModifier.TabIndex = 9;
             this.btnModifier.Text = "&Modifier";
             this.btnModifier.TextColor = System.Drawing.Color.White;
             this.btnModifier.UseVisualStyleBackColor = false;
@@ -250,10 +200,10 @@ namespace ApplicationSenSoutenance.Views
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.btnSupprimer.Location = new System.Drawing.Point(180, 490);
+            this.btnSupprimer.Location = new System.Drawing.Point(180, 370);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(130, 40);
-            this.btnSupprimer.TabIndex = 14;
+            this.btnSupprimer.TabIndex = 10;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.TextColor = System.Drawing.Color.White;
             this.btnSupprimer.UseVisualStyleBackColor = false;
@@ -265,27 +215,23 @@ namespace ApplicationSenSoutenance.Views
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgMemoire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMemoire.Location = new System.Drawing.Point(370, 70);
+            this.dgMemoire.Location = new System.Drawing.Point(350, 70);
             this.dgMemoire.Name = "dgMemoire";
-            this.dgMemoire.Size = new System.Drawing.Size(550, 470);
-            this.dgMemoire.TabIndex = 15;
+            this.dgMemoire.Size = new System.Drawing.Size(550, 450);
+            this.dgMemoire.TabIndex = 11;
             //
             // frmMemoire
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(970, 580);
+            this.ClientSize = new System.Drawing.Size(950, 550);
             this.ControlBox = false;
             this.Controls.Add(this.dgMemoire);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnSelectionner);
-            this.Controls.Add(this.cbbCoDirecteur);
-            this.Controls.Add(this.lblCoDirecteur);
-            this.Controls.Add(this.cbbDirecteur);
-            this.Controls.Add(this.lblDirecteur);
             this.Controls.Add(this.cbbCandidat);
             this.Controls.Add(this.lblCandidat);
             this.Controls.Add(this.cbbSession);
@@ -307,13 +253,9 @@ namespace ApplicationSenSoutenance.Views
         private System.Windows.Forms.Label lblSujet;
         private System.Windows.Forms.Label lblSession;
         private System.Windows.Forms.Label lblCandidat;
-        private System.Windows.Forms.Label lblDirecteur;
-        private System.Windows.Forms.Label lblCoDirecteur;
         private CustomControls.CustomTextBox txtSujet;
         private System.Windows.Forms.ComboBox cbbSession;
         private System.Windows.Forms.ComboBox cbbCandidat;
-        private System.Windows.Forms.ComboBox cbbDirecteur;
-        private System.Windows.Forms.ComboBox cbbCoDirecteur;
         private CustomControls.CustomButton btnSelectionner;
         private CustomControls.CustomButton btnAjouter;
         private CustomControls.CustomButton btnModifier;

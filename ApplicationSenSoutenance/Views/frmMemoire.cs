@@ -34,17 +34,6 @@ namespace ApplicationSenSoutenance.Views
             cbbCandidat.DataSource = filer.FillCandidats();
             cbbCandidat.DisplayMember = "Text";
             cbbCandidat.ValueMember = "Value";
-
-            // Professeurs pour Directeur
-            cbbDirecteur.DataSource = filer.FillProfesseurs();
-            cbbDirecteur.DisplayMember = "Text";
-            cbbDirecteur.ValueMember = "Value";
-
-            // Professeurs pour Co-Directeur (copie separee)
-            var profsCoDir = new FilerList().FillProfesseurs();
-            cbbCoDirecteur.DataSource = profsCoDir;
-            cbbCoDirecteur.DisplayMember = "Text";
-            cbbCoDirecteur.ValueMember = "Value";
         }
 
         private void ChargerDonnees()
@@ -52,11 +41,8 @@ namespace ApplicationSenSoutenance.Views
             try
             {
                 dgMemoire.DataSource = bd.memoires.ToList();
-                dgMemoire.Columns["DocumentMemoire"].Visible = false;
                 dgMemoire.Columns["Session"].Visible = false;
                 dgMemoire.Columns["Candidat"].Visible = false;
-                dgMemoire.Columns["DirecteurMemoire"].Visible = false;
-                dgMemoire.Columns["CoDirecteurMemoire"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -69,8 +55,6 @@ namespace ApplicationSenSoutenance.Views
             txtSujet.Texts = "";
             cbbSession.SelectedIndex = 0;
             cbbCandidat.SelectedIndex = 0;
-            cbbDirecteur.SelectedIndex = 0;
-            cbbCoDirecteur.SelectedIndex = 0;
             ChargerDonnees();
             txtSujet.Focus();
         }
@@ -88,16 +72,6 @@ namespace ApplicationSenSoutenance.Views
             var idCandidat = dgMemoire.CurrentRow.Cells["IdCandidat"].Value?.ToString();
             if (!string.IsNullOrEmpty(idCandidat))
                 cbbCandidat.SelectedValue = idCandidat;
-
-            var idDirecteur = dgMemoire.CurrentRow.Cells["IdDirecteurMemoire"].Value?.ToString();
-            if (!string.IsNullOrEmpty(idDirecteur))
-                cbbDirecteur.SelectedValue = idDirecteur;
-
-            var idCoDirecteur = dgMemoire.CurrentRow.Cells["IdCoDirecteurMemoire"].Value?.ToString();
-            if (!string.IsNullOrEmpty(idCoDirecteur))
-                cbbCoDirecteur.SelectedValue = idCoDirecteur;
-            else
-                cbbCoDirecteur.SelectedIndex = 0;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -108,9 +82,9 @@ namespace ApplicationSenSoutenance.Views
                 return;
             }
 
-            if (cbbSession.SelectedValue == null || cbbCandidat.SelectedValue == null || cbbDirecteur.SelectedValue == null)
+            if (cbbSession.SelectedValue == null || cbbCandidat.SelectedValue == null)
             {
-                MessageBox.Show("Veuillez selectionner la session, le candidat et le directeur.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez selectionner la session et le candidat.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -121,10 +95,6 @@ namespace ApplicationSenSoutenance.Views
                     SujetMemoire = txtSujet.Texts,
                     IdSession = int.Parse(cbbSession.SelectedValue.ToString()),
                     IdCandidat = int.Parse(cbbCandidat.SelectedValue.ToString()),
-                    IdDirecteurMemoire = int.Parse(cbbDirecteur.SelectedValue.ToString()),
-                    IdCoDirecteurMemoire = cbbCoDirecteur.SelectedValue != null && !string.IsNullOrEmpty(cbbCoDirecteur.SelectedValue.ToString())
-                        ? (int?)int.Parse(cbbCoDirecteur.SelectedValue.ToString())
-                        : null,
                     DateDepot = DateTime.Now
                 };
                 bd.memoires.Add(memoire);
@@ -151,10 +121,6 @@ namespace ApplicationSenSoutenance.Views
                     memoire.SujetMemoire = txtSujet.Texts;
                     memoire.IdSession = int.Parse(cbbSession.SelectedValue.ToString());
                     memoire.IdCandidat = int.Parse(cbbCandidat.SelectedValue.ToString());
-                    memoire.IdDirecteurMemoire = int.Parse(cbbDirecteur.SelectedValue.ToString());
-                    memoire.IdCoDirecteurMemoire = cbbCoDirecteur.SelectedValue != null && !string.IsNullOrEmpty(cbbCoDirecteur.SelectedValue.ToString())
-                        ? (int?)int.Parse(cbbCoDirecteur.SelectedValue.ToString())
-                        : null;
                     memoire.DateModification = DateTime.Now;
                     bd.SaveChanges();
                     Effacer();
