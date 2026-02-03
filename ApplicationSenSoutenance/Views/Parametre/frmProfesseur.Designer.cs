@@ -306,8 +306,6 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(950, 550);
-            this.ControlBox = false;
             this.Controls.Add(this.dgProfesseur);
             this.Controls.Add(this.btnSupprimerP);
             this.Controls.Add(this.btnModifierP);
@@ -325,7 +323,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmProfesseur";
-            this.Text = "Gestion des Professeurs";
+            this.Size = new System.Drawing.Size(950, 550);
             this.Load += new System.EventHandler(this.frmProfesseur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgProfesseur)).EndInit();
             this.ResumeLayout(false);

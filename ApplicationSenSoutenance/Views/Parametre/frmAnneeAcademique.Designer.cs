@@ -206,8 +206,6 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(880, 530);
-            this.ControlBox = false;
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAjouter);
@@ -218,7 +216,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.Controls.Add(this.lblLibelle);
             this.Controls.Add(this.dgAnneeAcademique);
             this.Name = "frmAnneeAcademique";
-            this.Text = "Gestion des Annees Academiques";
+            this.Size = new System.Drawing.Size(880, 530);
             this.Load += new System.EventHandler(this.frmAnneeAcademique_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAnneeAcademique)).EndInit();
             this.ResumeLayout(false);

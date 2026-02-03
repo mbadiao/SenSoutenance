@@ -287,8 +287,6 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(880, 530);
-            this.ControlBox = false;
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtRanneeAcademique);
             this.Controls.Add(this.lblRechercheAnnee);
@@ -304,7 +302,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.dgSession);
             this.Name = "frmSession";
-            this.Text = "Gestion des Sessions";
+            this.Size = new System.Drawing.Size(880, 530);
             this.Load += new System.EventHandler(this.frmSession_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgSession)).EndInit();
             this.ResumeLayout(false);

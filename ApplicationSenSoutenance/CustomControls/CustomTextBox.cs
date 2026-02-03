@@ -97,6 +97,8 @@ namespace ApplicationSenSoutenance.CustomControls
             {
                 base.BackColor = value;
                 textBox1.BackColor = value;
+                if (panelTextBox != null)
+                    panelTextBox.BackColor = value;
             }
         }
 
@@ -211,7 +213,7 @@ namespace ApplicationSenSoutenance.CustomControls
             // 
             // panelTextBox
             // 
-            this.panelTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.panelTextBox.BackColor = this.BackColor;
             this.panelTextBox.Controls.Add(this.textBox1);
             this.panelTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTextBox.Location = new System.Drawing.Point(0, 0);
@@ -223,7 +225,7 @@ namespace ApplicationSenSoutenance.CustomControls
             // CustomTextBox
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            // BackColor sera défini par le formulaire parent
             this.Controls.Add(this.panelTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

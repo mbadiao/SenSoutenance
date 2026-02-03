@@ -31,11 +31,21 @@ namespace ApplicationSenSoutenance
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.btnSeDeconnecter = new ApplicationSenSoutenance.CustomControls.CustomButton();
             this.btnQuitter = new ApplicationSenSoutenance.CustomControls.CustomButton();
+            this.pnlContentArea = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             this.pnlNavigation.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.SuspendLayout();
+            //
+            // pnlContentArea
+            //
+            this.pnlContentArea.BackColor = System.Drawing.Color.Black;
+            this.pnlContentArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContentArea.Location = new System.Drawing.Point(220, 0);
+            this.pnlContentArea.Name = "pnlContentArea";
+            this.pnlContentArea.Size = new System.Drawing.Size(980, 600);
+            this.pnlContentArea.TabIndex = 1;
             //
             // pnlSidebar
             //
@@ -314,9 +324,9 @@ namespace ApplicationSenSoutenance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.pnlContentArea);
             this.Controls.Add(this.pnlSidebar);
             this.ControlBox = false;
-            this.IsMdiContainer = true;
             this.Name = "frmMDI";
             this.Text = "Sen Soutenance";
             this.Load += new System.EventHandler(this.frmMDI_Load);
@@ -343,5 +353,6 @@ namespace ApplicationSenSoutenance
         private System.Windows.Forms.Panel pnlBottom;
         private CustomControls.CustomButton btnSeDeconnecter;
         private CustomControls.CustomButton btnQuitter;
+        private System.Windows.Forms.Panel pnlContentArea;
     }
 }

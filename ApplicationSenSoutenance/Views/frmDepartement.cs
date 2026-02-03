@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views
 {
-    public partial class frmDepartement : Form
+    public partial class frmDepartement : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
 
@@ -80,9 +80,15 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgDepartement.CurrentRow == null) return;
 
+            var cellValue = dgDepartement.CurrentRow.Cells["IdDepartement"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgDepartement.CurrentRow.Cells["IdDepartement"].Value.ToString());
                 var departement = bd.departements.Find(id);
                 if (departement != null)
                 {
@@ -103,12 +109,18 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgDepartement.CurrentRow == null) return;
 
+            var cellValue = dgDepartement.CurrentRow.Cells["IdDepartement"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer ce departement ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgDepartement.CurrentRow.Cells["IdDepartement"].Value.ToString());
                 var departement = bd.departements.Find(id);
                 if (departement != null)
                 {

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views
 {
-    public partial class frmMemoire : Form
+    public partial class frmMemoire : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
         FilerList filer = new FilerList();
@@ -112,9 +112,15 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgMemoire.CurrentRow == null) return;
 
+            var cellValue = dgMemoire.CurrentRow.Cells["IdMemoire"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgMemoire.CurrentRow.Cells["IdMemoire"].Value.ToString());
                 var memoire = bd.memoires.Find(id);
                 if (memoire != null)
                 {
@@ -137,12 +143,18 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgMemoire.CurrentRow == null) return;
 
+            var cellValue = dgMemoire.CurrentRow.Cells["IdMemoire"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer ce memoire ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgMemoire.CurrentRow.Cells["IdMemoire"].Value.ToString());
                 var memoire = bd.memoires.Find(id);
                 if (memoire != null)
                 {

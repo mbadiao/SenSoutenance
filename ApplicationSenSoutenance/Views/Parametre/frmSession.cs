@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views.Parametre
 {
-    public partial class frmSession : Form
+    public partial class frmSession : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
         FilerList filer = new FilerList();
@@ -99,9 +99,15 @@ namespace ApplicationSenSoutenance.Views.Parametre
         {
             if (dgSession.CurrentRow == null) return;
 
+            var cellValue = dgSession.CurrentRow.Cells["IdSession"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgSession.CurrentRow.Cells["IdSession"].Value.ToString());
                 var session = bd.sessions.Find(id);
                 if (session != null)
                 {
@@ -122,12 +128,18 @@ namespace ApplicationSenSoutenance.Views.Parametre
         {
             if (dgSession.CurrentRow == null) return;
 
+            var cellValue = dgSession.CurrentRow.Cells["IdSession"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer cette session ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgSession.CurrentRow.Cells["IdSession"].Value.ToString());
                 var session = bd.sessions.Find(id);
                 if (session != null)
                 {

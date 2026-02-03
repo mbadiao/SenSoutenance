@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views
 {
-    public partial class frmCandidat : Form
+    public partial class frmCandidat : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
 
@@ -94,9 +94,15 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgCandidat.CurrentRow == null) return;
 
+            var cellValue = dgCandidat.CurrentRow.Cells["IdUtilisateur"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgCandidat.CurrentRow.Cells["IdUtilisateur"].Value.ToString());
                 var candidat = bd.candidats.Find(id);
                 if (candidat != null)
                 {
@@ -121,12 +127,18 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgCandidat.CurrentRow == null) return;
 
+            var cellValue = dgCandidat.CurrentRow.Cells["IdUtilisateur"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer ce candidat ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgCandidat.CurrentRow.Cells["IdUtilisateur"].Value.ToString());
                 var candidat = bd.candidats.Find(id);
                 if (candidat != null)
                 {

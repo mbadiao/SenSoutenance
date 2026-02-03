@@ -225,8 +225,6 @@ namespace ApplicationSenSoutenance.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(950, 550);
-            this.ControlBox = false;
             this.Controls.Add(this.dgMemoire);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
@@ -240,7 +238,7 @@ namespace ApplicationSenSoutenance.Views
             this.Controls.Add(this.lblSujet);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmMemoire";
-            this.Text = "Gestion des Memoires";
+            this.Size = new System.Drawing.Size(950, 550);
             this.Load += new System.EventHandler(this.frmMemoire_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgMemoire)).EndInit();
             this.ResumeLayout(false);

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views
 {
-    public partial class frmSoutenance : Form
+    public partial class frmSoutenance : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
         FilerList filer = new FilerList();
@@ -163,9 +163,15 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgSoutenance.CurrentRow == null) return;
 
+            var cellValue = dgSoutenance.CurrentRow.Cells["IdSoutenance"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgSoutenance.CurrentRow.Cells["IdSoutenance"].Value.ToString());
                 var soutenance = bd.soutenances.Find(id);
                 if (soutenance != null)
                 {
@@ -198,12 +204,18 @@ namespace ApplicationSenSoutenance.Views
         {
             if (dgSoutenance.CurrentRow == null) return;
 
+            var cellValue = dgSoutenance.CurrentRow.Cells["IdSoutenance"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer cette soutenance ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgSoutenance.CurrentRow.Cells["IdSoutenance"].Value.ToString());
                 var soutenance = bd.soutenances.Find(id);
                 if (soutenance != null)
                 {

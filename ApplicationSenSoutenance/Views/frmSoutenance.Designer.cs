@@ -384,14 +384,12 @@ namespace ApplicationSenSoutenance.Views
             this.dgSoutenance.Size = new System.Drawing.Size(620, 470);
             this.dgSoutenance.TabIndex = 23;
             this.dgSoutenance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSoutenance_CellContentClick);
-            // 
+            //
             // frmSoutenance
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1000, 560);
-            this.ControlBox = false;
             this.Controls.Add(this.dgSoutenance);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
@@ -417,7 +415,7 @@ namespace ApplicationSenSoutenance.Views
             this.Controls.Add(this.lblMemoire);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmSoutenance";
-            this.Text = "Gestion des Soutenances";
+            this.Size = new System.Drawing.Size(1000, 560);
             this.Load += new System.EventHandler(this.frmSoutenance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgSoutenance)).EndInit();
             this.ResumeLayout(false);

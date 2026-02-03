@@ -209,8 +209,6 @@ namespace ApplicationSenSoutenance.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(900, 550);
-            this.ControlBox = false;
             this.Controls.Add(this.dgDepartement);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
@@ -222,7 +220,7 @@ namespace ApplicationSenSoutenance.Views
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmDepartement";
-            this.Text = "Gestion des Departements";
+            this.Size = new System.Drawing.Size(900, 550);
             this.Load += new System.EventHandler(this.frmDepartement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgDepartement)).EndInit();
             this.ResumeLayout(false);

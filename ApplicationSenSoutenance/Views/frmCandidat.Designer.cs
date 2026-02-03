@@ -311,14 +311,12 @@ namespace ApplicationSenSoutenance.Views
             this.dgCandidat.Name = "dgCandidat";
             this.dgCandidat.Size = new System.Drawing.Size(550, 450);
             this.dgCandidat.TabIndex = 15;
-            // 
+            //
             // frmCandidat
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(950, 550);
-            this.ControlBox = false;
             this.Controls.Add(this.dgCandidat);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
@@ -336,7 +334,7 @@ namespace ApplicationSenSoutenance.Views
             this.Controls.Add(this.lblMatricule);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmCandidat";
-            this.Text = "Gestion des Candidats";
+            this.Size = new System.Drawing.Size(950, 550);
             this.Load += new System.EventHandler(this.frmCandidat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCandidat)).EndInit();
             this.ResumeLayout(false);

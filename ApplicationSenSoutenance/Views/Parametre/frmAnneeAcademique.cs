@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ApplicationSenSoutenance.Views.Parametre
 {
-    public partial class frmAnneeAcademique : Form
+    public partial class frmAnneeAcademique : UserControl
     {
         BdSenSoutenanceContext bd = new BdSenSoutenanceContext();
 
@@ -92,9 +92,15 @@ namespace ApplicationSenSoutenance.Views.Parametre
                 return;
             }
 
+            var cellValue = dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value.ToString());
                 var anneeAcademique = bd.anneeAcademiques.Find(id);
                 if (anneeAcademique != null)
                 {
@@ -115,12 +121,18 @@ namespace ApplicationSenSoutenance.Views.Parametre
         {
             if (dgAnneeAcademique.CurrentRow == null) return;
 
+            var cellValue = dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show("Voulez-vous vraiment supprimer cette annee academique ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             try
             {
-                int id = int.Parse(dgAnneeAcademique.CurrentRow.Cells["IdAnneeAcademique"].Value.ToString());
                 var anneeAcademique = bd.anneeAcademiques.Find(id);
                 if (anneeAcademique != null)
                 {
