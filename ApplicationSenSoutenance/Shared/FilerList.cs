@@ -1,6 +1,7 @@
 ﻿using ApplicationSenSoutenance.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace ApplicationSenSoutenance.Shared
@@ -88,16 +89,16 @@ namespace ApplicationSenSoutenance.Shared
                 new ListItem { Value = null, Text = "Sélectionner" }
             };
 
-            foreach (var m in bd.memoires.ToList())
+            // Utiliser Include pour éviter N+1 queries
+            foreach (var m in bd.memoires.Include(x => x.Candidat).ToList())
             {
-                var candidat = bd.candidats.Find(m.IdCandidat);
                 var sujetCourt = m.SujetMemoire.Length > 40
                     ? m.SujetMemoire.Substring(0, 40) + "..."
                     : m.SujetMemoire;
                 laListe.Add(new ListItem
                 {
                     Value = m.IdMemoire.ToString(),
-                    Text = $"{candidat?.NomUtilisateur} - {sujetCourt}"
+                    Text = $"{m.Candidat?.NomUtilisateur} - {sujetCourt}"
                 });
             }
             return laListe;

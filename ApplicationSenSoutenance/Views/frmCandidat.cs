@@ -26,9 +26,7 @@ namespace ApplicationSenSoutenance.Views
             try
             {
                 dgCandidat.DataSource = bd.candidats.ToList();
-                dgCandidat.Columns["IdUtilisateur"].Visible = false;
-                dgCandidat.Columns["MotDePasse"].Visible = false;
-                dgCandidat.Columns["Memoires"].Visible = false;
+                DataGridViewStyler.ConfigureCandidat(dgCandidat);
             }
             catch (Exception ex)
             {
@@ -98,6 +96,12 @@ namespace ApplicationSenSoutenance.Views
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtMatricule.Texts) || string.IsNullOrWhiteSpace(txtNom.Texts))
+            {
+                MessageBox.Show("Veuillez saisir au moins le matricule et le nom.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -56,11 +56,7 @@ namespace ApplicationSenSoutenance.Views
             try
             {
                 dgSoutenance.DataSource = bd.soutenances.ToList();
-                dgSoutenance.Columns["Memoire"].Visible = false;
-                dgSoutenance.Columns["President"].Visible = false;
-                dgSoutenance.Columns["Rapporteur"].Visible = false;
-                dgSoutenance.Columns["Examinateur1"].Visible = false;
-                dgSoutenance.Columns["Examinateur2"].Visible = false;
+                DataGridViewStyler.ConfigureSoutenance(dgSoutenance);
             }
             catch (Exception ex)
             {
@@ -167,6 +163,13 @@ namespace ApplicationSenSoutenance.Views
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbbMemoire.SelectedValue == null || cbbPresident.SelectedValue == null ||
+                cbbRapporteur.SelectedValue == null || cbbExaminateur1.SelectedValue == null)
+            {
+                MessageBox.Show("Veuillez selectionner le memoire et les membres du jury.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

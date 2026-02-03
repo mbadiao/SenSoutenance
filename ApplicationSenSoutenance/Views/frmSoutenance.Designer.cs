@@ -87,9 +87,9 @@ namespace ApplicationSenSoutenance.Views
             this.lblLieu.Size = new System.Drawing.Size(30, 15);
             this.lblLieu.TabIndex = 5;
             this.lblLieu.Text = "Lieu";
-            // 
+            //
             // lblPresident
-            // 
+            //
             this.lblPresident.AutoSize = true;
             this.lblPresident.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPresident.ForeColor = System.Drawing.Color.White;
@@ -98,57 +98,57 @@ namespace ApplicationSenSoutenance.Views
             this.lblPresident.Size = new System.Drawing.Size(60, 15);
             this.lblPresident.TabIndex = 7;
             this.lblPresident.Text = "President";
-            // 
+            //
             // lblRapporteur
-            // 
+            //
             this.lblRapporteur.AutoSize = true;
             this.lblRapporteur.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblRapporteur.ForeColor = System.Drawing.Color.White;
-            this.lblRapporteur.Location = new System.Drawing.Point(30, 210);
+            this.lblRapporteur.Location = new System.Drawing.Point(175, 160);
             this.lblRapporteur.Name = "lblRapporteur";
             this.lblRapporteur.Size = new System.Drawing.Size(71, 15);
             this.lblRapporteur.TabIndex = 9;
             this.lblRapporteur.Text = "Rapporteur";
-            // 
+            //
             // lblExaminateur1
-            // 
+            //
             this.lblExaminateur1.AutoSize = true;
             this.lblExaminateur1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblExaminateur1.ForeColor = System.Drawing.Color.White;
-            this.lblExaminateur1.Location = new System.Drawing.Point(30, 260);
+            this.lblExaminateur1.Location = new System.Drawing.Point(30, 210);
             this.lblExaminateur1.Name = "lblExaminateur1";
             this.lblExaminateur1.Size = new System.Drawing.Size(87, 15);
             this.lblExaminateur1.TabIndex = 11;
             this.lblExaminateur1.Text = "Examinateur 1";
-            // 
+            //
             // lblExaminateur2
-            // 
+            //
             this.lblExaminateur2.AutoSize = true;
             this.lblExaminateur2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblExaminateur2.ForeColor = System.Drawing.Color.White;
-            this.lblExaminateur2.Location = new System.Drawing.Point(30, 310);
+            this.lblExaminateur2.Location = new System.Drawing.Point(175, 210);
             this.lblExaminateur2.Name = "lblExaminateur2";
             this.lblExaminateur2.Size = new System.Drawing.Size(120, 15);
             this.lblExaminateur2.TabIndex = 13;
             this.lblExaminateur2.Text = "Examinateur 2 (opt.)";
-            // 
+            //
             // lblNote
-            // 
+            //
             this.lblNote.AutoSize = true;
             this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblNote.ForeColor = System.Drawing.Color.White;
-            this.lblNote.Location = new System.Drawing.Point(30, 360);
+            this.lblNote.Location = new System.Drawing.Point(30, 260);
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(57, 15);
             this.lblNote.TabIndex = 15;
             this.lblNote.Text = "Note /20";
-            // 
+            //
             // lblResultat
-            // 
+            //
             this.lblResultat.AutoSize = true;
             this.lblResultat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblResultat.ForeColor = System.Drawing.Color.White;
-            this.lblResultat.Location = new System.Drawing.Point(145, 360);
+            this.lblResultat.Location = new System.Drawing.Point(145, 260);
             this.lblResultat.Name = "lblResultat";
             this.lblResultat.Size = new System.Drawing.Size(53, 15);
             this.lblResultat.TabIndex = 17;
@@ -198,9 +198,9 @@ namespace ApplicationSenSoutenance.Views
             this.txtLieu.TabIndex = 6;
             this.txtLieu.Texts = "";
             this.txtLieu.UnderlinedStyle = false;
-            // 
+            //
             // cbbPresident
-            // 
+            //
             this.cbbPresident.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbPresident.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPresident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -208,47 +208,47 @@ namespace ApplicationSenSoutenance.Views
             this.cbbPresident.ForeColor = System.Drawing.Color.White;
             this.cbbPresident.Location = new System.Drawing.Point(30, 178);
             this.cbbPresident.Name = "cbbPresident";
-            this.cbbPresident.Size = new System.Drawing.Size(280, 23);
+            this.cbbPresident.Size = new System.Drawing.Size(135, 23);
             this.cbbPresident.TabIndex = 8;
-            // 
+            //
             // cbbRapporteur
-            // 
+            //
             this.cbbRapporteur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbRapporteur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRapporteur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbRapporteur.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbbRapporteur.ForeColor = System.Drawing.Color.White;
-            this.cbbRapporteur.Location = new System.Drawing.Point(30, 228);
+            this.cbbRapporteur.Location = new System.Drawing.Point(175, 178);
             this.cbbRapporteur.Name = "cbbRapporteur";
-            this.cbbRapporteur.Size = new System.Drawing.Size(280, 23);
+            this.cbbRapporteur.Size = new System.Drawing.Size(135, 23);
             this.cbbRapporteur.TabIndex = 10;
-            // 
+            //
             // cbbExaminateur1
-            // 
+            //
             this.cbbExaminateur1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbExaminateur1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbExaminateur1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbExaminateur1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbbExaminateur1.ForeColor = System.Drawing.Color.White;
-            this.cbbExaminateur1.Location = new System.Drawing.Point(30, 278);
+            this.cbbExaminateur1.Location = new System.Drawing.Point(30, 228);
             this.cbbExaminateur1.Name = "cbbExaminateur1";
-            this.cbbExaminateur1.Size = new System.Drawing.Size(280, 23);
+            this.cbbExaminateur1.Size = new System.Drawing.Size(135, 23);
             this.cbbExaminateur1.TabIndex = 12;
-            // 
+            //
             // cbbExaminateur2
-            // 
+            //
             this.cbbExaminateur2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbExaminateur2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbExaminateur2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbExaminateur2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbbExaminateur2.ForeColor = System.Drawing.Color.White;
-            this.cbbExaminateur2.Location = new System.Drawing.Point(30, 328);
+            this.cbbExaminateur2.Location = new System.Drawing.Point(175, 228);
             this.cbbExaminateur2.Name = "cbbExaminateur2";
-            this.cbbExaminateur2.Size = new System.Drawing.Size(280, 23);
+            this.cbbExaminateur2.Size = new System.Drawing.Size(135, 23);
             this.cbbExaminateur2.TabIndex = 14;
-            // 
+            //
             // txtNote
-            // 
+            //
             this.txtNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.txtNote.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
@@ -256,7 +256,7 @@ namespace ApplicationSenSoutenance.Views
             this.txtNote.BorderSize = 2;
             this.txtNote.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNote.ForeColor = System.Drawing.Color.White;
-            this.txtNote.Location = new System.Drawing.Point(30, 378);
+            this.txtNote.Location = new System.Drawing.Point(30, 278);
             this.txtNote.Margin = new System.Windows.Forms.Padding(4);
             this.txtNote.Multiline = false;
             this.txtNote.Name = "txtNote";
@@ -268,9 +268,9 @@ namespace ApplicationSenSoutenance.Views
             this.txtNote.TabIndex = 16;
             this.txtNote.Texts = "";
             this.txtNote.UnderlinedStyle = false;
-            // 
+            //
             // cbbResultat
-            // 
+            //
             this.cbbResultat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.cbbResultat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbResultat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -280,13 +280,13 @@ namespace ApplicationSenSoutenance.Views
             "",
             "Admis",
             "Ajourne"});
-            this.cbbResultat.Location = new System.Drawing.Point(145, 381);
+            this.cbbResultat.Location = new System.Drawing.Point(145, 281);
             this.cbbResultat.Name = "cbbResultat";
             this.cbbResultat.Size = new System.Drawing.Size(165, 23);
             this.cbbResultat.TabIndex = 18;
-            // 
+            //
             // btnSelectionner
-            // 
+            //
             this.btnSelectionner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnSelectionner.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnSelectionner.BorderRadius = 10;
@@ -298,7 +298,7 @@ namespace ApplicationSenSoutenance.Views
             this.btnSelectionner.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSelectionner.ForeColor = System.Drawing.Color.White;
             this.btnSelectionner.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
-            this.btnSelectionner.Location = new System.Drawing.Point(30, 430);
+            this.btnSelectionner.Location = new System.Drawing.Point(30, 330);
             this.btnSelectionner.Name = "btnSelectionner";
             this.btnSelectionner.Size = new System.Drawing.Size(115, 35);
             this.btnSelectionner.TabIndex = 19;
@@ -306,9 +306,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnSelectionner.TextColor = System.Drawing.Color.White;
             this.btnSelectionner.UseVisualStyleBackColor = false;
             this.btnSelectionner.Click += new System.EventHandler(this.btnSelectionner_Click);
-            // 
+            //
             // btnAjouter
-            // 
+            //
             this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnAjouter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
             this.btnAjouter.BorderRadius = 10;
@@ -320,7 +320,7 @@ namespace ApplicationSenSoutenance.Views
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
-            this.btnAjouter.Location = new System.Drawing.Point(160, 430);
+            this.btnAjouter.Location = new System.Drawing.Point(160, 330);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(115, 35);
             this.btnAjouter.TabIndex = 20;
@@ -328,9 +328,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnAjouter.TextColor = System.Drawing.Color.White;
             this.btnAjouter.UseVisualStyleBackColor = false;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
+            //
             // btnModifier
-            // 
+            //
             this.btnModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(205)))));
             this.btnModifier.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(101)))), ((int)(((byte)(205)))));
             this.btnModifier.BorderRadius = 10;
@@ -342,7 +342,7 @@ namespace ApplicationSenSoutenance.Views
             this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(92)))), ((int)(((byte)(249)))));
-            this.btnModifier.Location = new System.Drawing.Point(30, 480);
+            this.btnModifier.Location = new System.Drawing.Point(30, 380);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(115, 35);
             this.btnModifier.TabIndex = 21;
@@ -350,9 +350,9 @@ namespace ApplicationSenSoutenance.Views
             this.btnModifier.TextColor = System.Drawing.Color.White;
             this.btnModifier.UseVisualStyleBackColor = false;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
-            // 
+            //
             // btnSupprimer
-            // 
+            //
             this.btnSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
             this.btnSupprimer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(46)))), ((int)(((byte)(198)))));
             this.btnSupprimer.BorderRadius = 10;
@@ -364,7 +364,7 @@ namespace ApplicationSenSoutenance.Views
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.btnSupprimer.Location = new System.Drawing.Point(160, 480);
+            this.btnSupprimer.Location = new System.Drawing.Point(160, 380);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(115, 35);
             this.btnSupprimer.TabIndex = 22;

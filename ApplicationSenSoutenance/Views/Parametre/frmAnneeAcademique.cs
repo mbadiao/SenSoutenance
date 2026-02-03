@@ -26,7 +26,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             try
             {
                 dgAnneeAcademique.DataSource = bd.anneeAcademiques.ToList();
-                dgAnneeAcademique.Columns["Sessions"].Visible = false;
+                DataGridViewStyler.ConfigureAnneeAcademique(dgAnneeAcademique);
             }
             catch (Exception ex)
             {
@@ -86,7 +86,13 @@ namespace ApplicationSenSoutenance.Views.Parametre
         {
             if (dgAnneeAcademique.CurrentRow == null) return;
 
-            if (!int.TryParse(txtAnneeAcademiqueVal.Texts, out int anneeVal))
+            if (string.IsNullOrWhiteSpace(txtLibelleAnneeAcademique.Texts))
+            {
+                MessageBox.Show("Veuillez saisir le libelle de l'annee academique.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtAnneeAcademiqueVal.Texts) || !int.TryParse(txtAnneeAcademiqueVal.Texts, out int anneeVal))
             {
                 MessageBox.Show("Veuillez saisir une valeur numerique valide pour l'annee.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

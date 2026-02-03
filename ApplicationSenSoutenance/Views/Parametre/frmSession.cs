@@ -35,8 +35,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             try
             {
                 dgSession.DataSource = bd.sessions.ToList();
-                dgSession.Columns["AnneeAcademique"].Visible = false;
-                dgSession.Columns["Memoires"].Visible = false;
+                DataGridViewStyler.ConfigureSession(dgSession);
             }
             catch (Exception ex)
             {
@@ -103,6 +102,18 @@ namespace ApplicationSenSoutenance.Views.Parametre
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtSession.Texts))
+            {
+                MessageBox.Show("Veuillez saisir le libelle de la session.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbbAnneeAcademique.SelectedValue == null)
+            {
+                MessageBox.Show("Veuillez selectionner une annee academique.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

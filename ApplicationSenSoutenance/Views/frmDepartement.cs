@@ -26,7 +26,7 @@ namespace ApplicationSenSoutenance.Views
             try
             {
                 dgDepartement.DataSource = bd.departements.ToList();
-                dgDepartement.Columns["ChefsDepartement"].Visible = false;
+                DataGridViewStyler.ConfigureDepartement(dgDepartement);
             }
             catch (Exception ex)
             {
@@ -84,6 +84,12 @@ namespace ApplicationSenSoutenance.Views
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLibelle.Texts))
+            {
+                MessageBox.Show("Veuillez saisir le libelle du departement.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

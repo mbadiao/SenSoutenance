@@ -41,8 +41,7 @@ namespace ApplicationSenSoutenance.Views
             try
             {
                 dgMemoire.DataSource = bd.memoires.ToList();
-                dgMemoire.Columns["Session"].Visible = false;
-                dgMemoire.Columns["Candidat"].Visible = false;
+                DataGridViewStyler.ConfigureMemoire(dgMemoire);
             }
             catch (Exception ex)
             {
@@ -116,6 +115,18 @@ namespace ApplicationSenSoutenance.Views
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtSujet.Texts))
+            {
+                MessageBox.Show("Veuillez saisir le sujet du memoire.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbbSession.SelectedValue == null || cbbCandidat.SelectedValue == null)
+            {
+                MessageBox.Show("Veuillez selectionner la session et le candidat.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

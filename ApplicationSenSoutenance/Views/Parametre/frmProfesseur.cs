@@ -26,8 +26,7 @@ namespace ApplicationSenSoutenance.Views.Parametre
             try
             {
                 dgProfesseur.DataSource = bd.professeurs.ToList();
-                dgProfesseur.Columns["IdUtilisateur"].Visible = false;
-                dgProfesseur.Columns["MotDePasse"].Visible = false;
+                DataGridViewStyler.ConfigureProfesseur(dgProfesseur);
             }
             catch (Exception ex)
             {
@@ -97,6 +96,12 @@ namespace ApplicationSenSoutenance.Views.Parametre
             if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id))
             {
                 MessageBox.Show("Veuillez selectionner une ligne valide.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNomP.Texts))
+            {
+                MessageBox.Show("Veuillez saisir le nom du professeur.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
